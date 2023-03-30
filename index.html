@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Sayyed Sameer Basir</title>
+    <!-- Box Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="images/myimg.png" type="image/x-icon">
+  </head>
+  <body>
+    <!-- header design -->
+    <header class="header">
+      <a href="" class="logo">Welcome to Sameer Portfolio</a>
+      <i class="bx bx-menu" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <!-- Home Section Design -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Hello, It's Me</h3>
+        <h1>Sayyed Sameer Basir</h1>
+        <h3>And I'm a <span class="multiple-text"></span></h3>
+        <p>
+          Glad to see your eagerness to know about me. Explore about myself, and I hope you would like my work
+        </p>
+        <div class="social-media">
+          <a href="https://www.instagram.com/sameer_k_0208" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="https://github.com/sameer0208" target="_blank"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://www.youtube.com/@learningwithsameer2863" target="_blank"><i class="bx bxl-youtube"></i></a>
+        </div>
+        <a href="resume/myresume.pdf" target="_blank" class="btn">Download CV</a>
+      </div>
+
+      <div class="home-img">
+        <img src="images/myimg.png" alt="" />
+      </div>
+    </section>
+
+    <!-- about section design -->
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="images/myimg.png" alt="" />
+      </div>
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3>Full Stack Web Developer</h3>
+        <p class="aboutme">
+          As a passionate and detail-oriented developer with 2 years of experience, I have a proven track record of delivering high-quality code and building web applications. <br> I thrive on solving complex problems and staying up-to-date with the latest technologies and trends in the industry. My skills include proficiency in HTML, CSS, JavaScript, C, C++, Java, Python. <br> I am a strong communicator and collaborator, and I am dedicated to working closely with clients and stakeholders to ensure their needs are met. My goal is to continue to grow my skills and make a meaningful impact in the field of software development.
+        </p>
+        <div class="tab-titles">
+          <p class="tab-links active-link"  onclick="opentab('skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('experience')">Experience</p>
+          <p class="tab-links" onclick="opentab('education')">Education</p>
+        </div>
+        <!-- Skills -->
+        <div class="tab-contents active-tab" id="skills">
+          <ul>
+            <li><span>UI/UX</span><br>Designing Website Interfaces</li>
+            <li><span>Front End Web Development</span><br><ul><li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li></ul></li>
+            <li><span>MERN Web Development</span><br><ul><li>MongoDB</li>
+            <li>Express JS</li>
+            <li>React JS</li>
+            <li>Node JS</li></ul></li>
+            <ul>
+              <li><span>Programming Languages</span><br><ul><li>C</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>C++</li></ul></li>
+            </ul>
+            <li><span>Query Languages</span><br><ul><li>MySQL</li>
+              <li>MongoDB</li>
+              </ul></li>
+          </ul>
+          <ul>
+            <li><span>Oral Skills</span><br><ul><li>Communication Skills</li>
+              <li>Leadership Skills</li>
+              <li>Interpersonal Skills</li>
+              <li>Project Management Skills</li>
+            <li>Problem-Solving Skills</li></ul></li>
+          </ul>
+        </div>
+        <!-- Experience -->
+        <div class="tab-contents" id="experience">
+          <ul>
+            <li><span>Curriculum Engineer - Full Stack Web Development</span><br>Basta Internship<br>Description : Develop Educational Content, create Educational Videos and will take live classes as a Instructor/mentor, also makes assignments and projects related to the curriculum.</li>
+            <li><span>Technical Club President</span><br>At KLH University<br>Description : Conducting Technical Events, Webinars, Competitions, and Workshops.</li>
+            <li><span>CSI (Computer Society of India) Vice President</span><br>At KLH University<br>Description : Organizing different workshops, webinars, seminars and also Tech related competitions.</li>
+          </ul>
+        </div>
+        <!-- Education -->
+        <div class="tab-contents" id="education">
+          <ul>
+            <li><span>2021-2025</span><br>CGPA : 9.9<br>B.Tech CSE Honors<br>KL University Hyderabad</li>
+            <li><span>2020-2021</span><br>Grade : 93%<br>12th Standard<br>Kendriya Vidyalaya Trimulgherry (CBSE BOARD)</li>
+            <li><span>2018-2019</span><br>Grade : 92%<br>10th Standard<br>Kendriya Vidyalaya Sunjuwan (CBSE BOARD)</li>
+          </ul>
+        </div>
+        <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" class="btn" target="_blank">Click to know More</a>
+      </div>
+    </section>
+
+    <!-- services section design -->
+    <section class="services" id="services">
+      <h2 class="heading">Our <span>Services</span></h2>
+      <div class="services-container">
+        <div class="services-box">
+          <i class="bx bx-code-alt"></i>
+          <h3>Web Development</h3>
+          <p>
+            Web projects developed using <b>HTML, CSS, JavaScript, Django and Flask Frameworks, MERN (MongoDB, Express.js, React.js, Node.js) </b> and for backend <b>MySQL and MongoDB Server </b>.
+          </p>
+          <a href="https://github.com/sameer0208?tab=repositories" class="btn" target="_blank">Check on GitHub</a>
+          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/certifications/" class="btn" target="_blank">Certifications</a>
+        </div>
+      </div>
+      <div class="services-container">
+        <div class="services-box">
+          <i class="bx bx-laptop"></i>
+          <h3>Programming / Coding Skills</h3>
+          <p>
+            Equipped with the Programming skills in <b>C, C++, Java, Python.</b> 
+          </p>
+          <a href="https://www.stopstalk.com/user/profile/sameer0208" class="btn" target="_blank">Check Coding Status</a>
+          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/certifications/" class="btn" target="_blank">Certifications</a>
+        </div>
+      </div>
+      <div class="services-container">
+        <div class="services-box">
+          <i class="bx bxs-paint"></i>
+          <h3>Graphics Designing</h3>
+          <p>
+            Enriched with creativity and innovation for Graphics Designing using <b>Adobe Illustrator</b>
+          </p>
+          <a href="https://www.shutterstock.com/g/new_images02?_gl=1*5dbew3*_ga*NjgyNjY5MTY1LjE2ODAxNjc1NDI.*_ga_5JRYE4Y8J9*MTY4MDE2NzY0MS4xLjEuMTY4MDE2Nzc4NC42MC4wLjA.*_fplc*S2NjNkpqajNCZ3F6aFhpMld0SSUyRjRjVElGMnE0RnNsbDhCUzdiSHdjTTNnJTJCcWhLWnJ2MjdJY0wyU215NXdiM0MlMkJ5OUtVU2lDZXBPVXhrUDVHQ1VGazUlMkY5JTJCY1U4N0p4SEpGTThGUVBSQmZOTUJQRGx6a2ElMkY0NXBySUdGbW9BJTNEJTNE" class="btn" target="_blank">Check My Work</a>
+        </div>
+      </div>
+
+      <div class="services-container">
+        <div class="services-box">
+          <i class="bx bx-video"></i>
+          <h3>Video Editing</h3>
+          <p>
+            Premium Video Editing with high-quality using <b>Wondershare Filmora</b> and Adobe After Effects</b>.
+          </p>
+          <a href="https://www.youtube.com/@learningwithsameer2863" class="btn" target="_blank">Visit to my YouTube Channel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Portfolio Design -->
+    <div id="portfolio">
+      <div class="container">
+        <h2 class="heading">Latest <span>Project</span></h2>
+        <div class="work-list portfolio-box">
+          <div class="work">
+            <img src="images/ste.png" alt="" />
+            <div class="layer">
+              <h3>Sameer Text Editor</h3>
+              <p>
+                Sameer Text Editor is created using pure ReactJS. Edit text here and save your time. All the actions with a single click. Easy to use and understand with a user-friendly UI/UX Interface.
+              </p>
+              <a href="#" target="_blank"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+          <div class="work">
+            <img src="images/fcw.png" alt="" />
+            <div class="layer">
+                <h3>Flipkart Clone Website</h3>
+                <p>
+                  This website is created using HTML5 and CSS3 which is the clone of the famous online shopping website Flipkart.
+                </p>
+                <a href="myprojects/Flipkart Clone Website/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+              </div>
+          </div>
+          <div class="work">
+            <img src="images/icw.png" alt="" />
+            <div class="layer">
+                <h3>International Conference Webpage</h3>
+                <p>
+                  Website is created using HTML5 and CSS3 for the college International Conference.
+                </p>
+                <a href="myprojects/International Conference Webpage/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+              </div>
+          </div>
+          <div class="work">
+            <img src="images/stw.png" alt="" />
+            <div class="layer">
+                <h3>Sameer Type Writer</h3>
+                <p>
+                  Website is created using HTML5, CSS3 and JavaScript where you can type using 3D Keyboard.
+                </p>
+                <a href="myprojects/Sameer Type Writer/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+              </div>
+          </div>
+          <div class="work">
+            <img src="images/scw.png" alt="" />
+            <div class="layer">
+                <h3>Standard Clock Website</h3>
+                <p>
+                 Website is created using HTML5, CSS and Bootstrap, which shows live time with date.
+                </p>
+                <a href="myprojects/Standard Clock Website/project1.html" target="_blank"><i class="bx bx-link-external"></i></a>
+              </div>
+          </div>
+          <div class="work">
+            <img src="images/twl.png" alt="" />
+            <div class="layer">
+                <h3>TODOs List Website</h3>
+                <p>
+                  Website is created using HTML5, CSS3, Bootstrap and JavaScript, which allows user to keep their TODOs List.
+                </p>
+                <a href="myprojects/TODOs List Website/project2.html" target="_blank"><i class="bx bx-link-external"></i></a>
+              </div>
+          </div>
+          <div class="work">
+            <img src="images/ycw.png" alt="" />
+            <div class="layer">
+                <h3>YouTube Channel Wesbite</h3>
+                <p>
+                  Website created using HTML5, CSS3 and JavaScript to demonstrate my YouTube videos and certifications.
+                </p>
+                <a href="myprojects/YouTube Channel Website/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section Design -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+      <form name="submit-to-google-sheet">
+        <div class="input-box">
+          <input type="text" name="Name" id="" placeholder="Full Name" />
+          <input type="text" name="Email" id="" placeholder="Email Address" />
+        </div>
+        <div class="input-box">
+          <input type="number" name="Mobile" id="" placeholder="Mobile Number" />
+          <input type="text" name="Subject" id="" placeholder="Email Subject" />
+        </div>
+        <textarea
+          name="Message"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Your Message"
+        ></textarea>
+        <input type="submit" value="Send Message" class="btn" />
+        <p id="msg"></p>
+        <div class="social-media">
+          <a href="https://www.instagram.com/sameer_k_0208" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="https://github.com/sameer0208" target="_blank"><i class="bx bxl-github"></i></a>
+          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://www.youtube.com/@learningwithsameer2863" target="_blank"><i class="bx bxl-youtube"></i></a>
+        </div>
+      </form>
+    </section>
+
+    <!-- footer section design -->
+    <footer class="footer">
+      <div class="footer-text">
+        <p>
+          Copyright &copy; 2023 by Sayyed Sameer Basir | All Rights Reserved
+        </p>
+      </div>
+      <div class="footer-iconTop">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </footer>
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Typed JS -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script src="js/script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyY-Sqpml5xU63m5pGsg-sUJPu75KYnoT4Ywtmd1gPg7LZiviswCKtVfjzq-Gtgm4a-/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg");
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+              msg.innerHTML = "Message sent successfully" 
+              setTimeout(function(){
+                msg.innerHTML=""
+              },5000)
+              form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+  </body>
+</html>

@@ -1,0 +1,327 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(186, 207, 226);
+  box-shadow: 100px 200px 500px rgb(117, 82, 82);
+}
+header {
+  display: flex;
+  min-height: calc(100vh- (58px+12vh));
+  background-color: darkblue;
+  color: cyan;
+  position: sticky;
+  top: 0;
+}
+nav {
+  display: flex;
+  min-width: 10px;
+}
+nav ul {
+  display: flex;
+  height: 40px;
+
+  justify-content: center;
+  align-items: center;
+}
+nav ul li {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 30px;
+  padding: 0 20px 0;
+}
+nav ul li .memo:hover {
+  transform: scale(1.3);
+  cursor: pointer;
+}
+header nav img {
+  display: flex;
+  justify-content: center;
+  height: 5vh; 
+  margin-top: 2px;
+  left: 10px;
+  position: absolute;
+  left: 500px;
+}
+#homeicon {
+  position: absolute;
+  left: 5px;
+  top: 1.5px;
+}
+#knowmoreicon {
+  position: absolute;
+  left: 145px;
+  top: 1.5px;
+}
+#contacticon {
+  position: absolute;
+  left: 320px;
+  top: 1.5px;
+}
+#galleryicon
+{
+  position: absolute;
+  left: 460px;
+  top: 1.5px;
+}
+#galleryicon:hover
+{
+  transform: scale(1.2);
+}
+#visiticon {
+  position: absolute;
+  left: -38px;
+  top: -5.8px;
+}
+.btn {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 580px;
+  top: 8px;
+  box-shadow: 1px 1px 50px red;
+}
+.visitbtn {
+  background-color: aqua;
+  color: blueviolet;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 80px;
+  top: 8px;
+  padding: 3px;
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+.visitbtn a {
+  text-decoration: none;
+}
+.visitbtn:hover {
+  transform: scale(1.2);
+}
+.btnlyc:hover {
+  transform: scale(1.1);
+  color: rgb(243, 241, 247);
+}
+.btnlyc {
+  background-color: red;
+  color: rgb(255, 255, 255);
+  padding: 5px;
+}
+.bigimg:hover {
+  transform: scale(1.2);
+}
+.memo a {
+  text-decoration: none;
+  color: white;
+}
+.userdisplay{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 30px;
+  position: absolute;
+  left: 800px;
+  top: 5px;
+}
+main {
+  min-height: calc(100vh - 58px - 12vh);
+}
+.gallerydisplay
+{
+  
+  position: absolute;
+  left: 397px;
+  top: 40px;
+  display: none;
+}
+.gallerydisplay img
+{
+  width: 150px;
+  height: 200px;
+}
+.bigimg img {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  height: 200px;
+  width: 500px;
+  box-shadow: 1px 2px 50px white;
+}
+/*.logo
+{
+    box-shadow: 1px 50px 10px rgb(5, 8, 64);
+}*/
+.logo img {
+  display: inline;
+  width: 300px;
+  height: 260px;
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  box-shadow: 10px 20px 10px rgb(5, 8, 64);
+  animation-name: logoanim;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+}
+.details {
+  display: block;
+  position: absolute;
+  grid-template-rows: auto;
+  top: 50px;
+  margin: 10px;
+  background-color: aqua;
+  height: 32vh;
+  left: 20px;
+}
+.ide {
+  margin: 10px;
+}
+.details1 {
+  display: block;
+  position: absolute;
+  grid-template-rows: auto;
+  top: 50px;
+  margin: 10px;
+  background-color: aqua;
+  left: 120px;
+  height: 32vh;
+  animation-name: detailsanim;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+}
+.ide1 {
+  margin: 10px;
+}
+.details:hover {
+  transform: scale(1.2);
+}
+.details1:hover {
+  transform: scale(1.2);
+}
+.ifr {
+  display: inline-block;
+  margin: 20px;
+  padding: 2px;
+}
+.infr {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  border: 2px solid #22223a;
+  padding: 10px;
+  box-shadow: 1px 2px 90px rgb(66, 71, 164);
+}
+.infr:hover {
+  transform: scale(1.2);
+  border: 0px;
+}
+.vdo {
+  display: inline;
+  position: absolute;
+  left: 880px;
+}
+.vdo:hover {
+  transform: scale(1.05);
+}
+.vdo video {
+  position: absolute;
+  bottom: -293px;
+  width: 463px;
+  height: 240px;
+}
+.certificates label {
+  display: flex;
+  height: 40px;
+  background-color: #22223a;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px 0 20px;
+}
+.certi img {
+  width: 400px;
+  height: 250px;
+  margin: 5px 10px;
+  border: 5px solid rgb(101, 101, 165);
+  border-radius: 5px;
+}
+#contacts {
+  display: flex;
+  height: 110px;
+  background-color: #0b1631ae;
+  justify-content: center;
+  padding: 0 0 0 20px;
+  align-items: center;
+  color: white;
+}
+.social {
+  display: block;
+  padding: 0 60px 15px 60px;
+  width: 200px;
+}
+#instaicon {
+  height: 30px;
+  position: absolute;
+  bottom: -1135px;
+  left: 575px;
+  padding: 0 4px;
+}
+#snapicon {
+  height: 30px;
+  position: absolute;
+  bottom: -1170px;
+  left: 575px;
+  padding: 0 4px;
+}
+footer {
+  background-color: rgb(34, 54, 54);
+  color: rgb(225, 241, 236);
+  height: 14vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes detailsanim {
+  0% {
+    background-color: rgb(25, 231, 231);
+  }
+  50% {
+    background-color: rgb(19, 34, 34);
+    color: white;
+  }
+  100% {
+    background-color: rgb(128, 225, 225);
+  }
+}
+@keyframes logoanim {
+  0% {
+    box-shadow: 10px 20px 10px rgb(5, 8, 64);
+  }
+  50% {
+    box-shadow: 10px 20px 10px rgb(42, 47, 145);
+  }
+  100% {
+    box-shadow: 10px 20px 10px rgb(79, 81, 131);
+  }
+}

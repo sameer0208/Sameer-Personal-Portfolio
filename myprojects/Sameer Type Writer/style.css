@@ -1,0 +1,459 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+body
+{
+    position: relative;
+    overflow-x: hidden;
+}
+body #bgvideo
+{
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    background-size: cover;
+    background: linear-gradient(0,0,0,0.5);
+}
+/* Header styling */
+.header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(rgba(76, 123, 233, 0.417),rgba(76, 123, 233, 0.417)),url(img/keyboard.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.header .fa-solid
+{
+    color: white;
+    /* width: 5px; */
+}
+.header nav ul 
+{
+    display: flex;
+    background: linear-gradient(rgba(41, 189, 192, 0.442),rgba(41, 189, 192, 0.442),rgba(41, 189, 192, 0.442));
+    width: 123%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.header ul li
+{
+    color: white;
+    list-style-type: none;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+}
+.header img
+{
+    width: 15%;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+}
+.header ul li:hover
+{
+    background: linear-gradient(rgba(9, 243, 196, 0.8),rgba(9, 243, 196, 0.8),rgba(9, 243, 196, 0.8));
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Intro part styling */
+.myintro
+{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    position: relative; 
+    overflow: hidden;  
+}
+.myintro img:hover 
+{
+    animation: myimganim .5s 1;
+    cursor: pointer;
+}
+.myintro img
+{
+    width: 250px;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    top: 2px;
+}
+.myimg
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    width: 40%;
+    height: 50vh;
+    border-radius: 50%;
+    background: radial-gradient(rgba(222, 15, 15, 0.5),rgba(222, 15, 15, 0.5));
+}
+.myintro video{
+    width: 1500px;
+    z-index: -2;
+}
+.myintro .introtext
+{
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
+    -webkit-text-fill-color: rgb(224, 227, 238);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    position: absolute;
+    bottom: 10px;
+}
+@keyframes myimganim
+{
+    0%
+    {
+        transform: rotate(0deg) scale(1.2);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+/* Menu Bar Styling */
+.menubar
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    background: linear-gradient(to right,rgba(6, 120, 241, 0.6),rgba(183, 11, 225, 0.918),rgba(6, 120, 241, 0.6),rgba(183, 11, 225, 0.918));
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+.menubar .textmenu
+{
+    margin: 5px 50px 5px 50px;
+}
+.menubar .textmenu:hover
+{
+    animation: textmenuanim 1s 1;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+}
+.menubar #icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menubar #icon:hover
+{
+    background-color: black;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.menubar #fontstyle 
+{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    z-index: 3;
+    position: absolute;
+    left: 270px;
+    top: 28px;
+    border-radius: 10px;
+    display: none;
+    transition: 5s;
+}
+.menubar #fontstyle li 
+{
+    list-style: none;
+}
+.menubar #fontstyle li:hover 
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.menubar #fontsize
+{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    z-index: 3;
+    position: absolute;
+    left: 470px;
+    top: 28px;
+    width: 60px;
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+    transition: 5s;
+}
+.menubar #fontsize li 
+{
+    padding: 5px;
+    list-style: none;
+}
+.menubar #fontsize li:hover 
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.menubar #bgcolor
+{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    z-index: 3;
+    position: absolute;
+    left: 670px;
+    top: 28px;
+    width: 70px;
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+    transition: 5s;
+}
+.menubar #bgcolor li 
+{
+    padding: 5px;
+    list-style: none;
+}
+.menubar #bgcolor li:hover 
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+.menubar #txtcolor
+{
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    z-index: 3;
+    position: absolute;
+    left: 900px;
+    top: 28px;
+    width: 70px;
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+    transition: 5s;
+}
+.menubar #txtcolor li 
+{
+    padding: 5px;
+    list-style: none;
+}
+.menubar #txtcolor li:hover 
+{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+@keyframes textmenuanim
+{
+    0%{
+        transform: rotateX(0deg);
+
+    }
+    100%{
+        transform: rotateX(360deg);
+        color: black;
+        background-color: white;
+    }
+}
+/* Text Editor Styling */
+.texteditor
+{
+    /* border: 2px solid black; */
+    /* margin-top: 5px; */
+    position: relative;
+    height: 80vh;
+}
+.texteditor .inputtext 
+{
+    /* position: absolute; */
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    /* margin: 10px 150px 10px 150px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 10px rgb(5, 13, 66);
+}
+.input
+{
+    margin-top: -20px;
+    font-size: 50px;
+    width: 90%;
+    height: 60vh;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    resize: none;
+    background: linear-gradient(rgba(192, 182, 150, 0.765),rgba(192, 182, 150, 0.765),rgba(192, 182, 150, 0.765));
+    box-shadow:  1px 2px 30px 20px rgb(104, 118, 172);
+}
+.input .darktheme
+{
+    background-color: black;
+    color: white;
+}
+/* Keyboard Styling */
+.keyboard
+{
+   /* background: url(img/aquarium.mp4); */
+   width: 100%;
+   height: 75vh;
+   margin-top: -20px;
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   overflow: hidden;
+}
+.keyboard video
+{
+    /* height: 100vh; */
+    width: 1500px;
+    z-index: -1;
+}
+.keyboard .char{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 40%;
+    border: 2px solid white;
+    background-color: transparent;
+    position: absolute;
+    left: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.keyboard .char .alpha
+{
+    display: block;
+    margin: 5px 20px 5px 20px;
+    border: 2px solid rgba(181, 155, 155, 0.8);
+    padding: 2px 5px 2px 5px;
+    background-color: transparent;
+    color: white;
+    border-radius: 50%;
+    font-size: 50px;
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+.keyboard .char .alpha:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+}
+.keyboard .specialkeys
+{   
+    float: right;
+    color: white;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 70vh;
+    position: absolute;
+    left: 570px;
+    top: 25px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 20px;
+}
+.keyboard .specialkeys .skey
+{
+    display: block;
+    margin: 5px 20px 5px 20px;
+    border: 2px solid rgba(181, 155, 155, 0.8);
+    padding: 2px 5px 2px 5px;
+    background-color: transparent;
+    color: white;
+    border-radius: 30px;
+    font-size: 30px;
+    float: left;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-left: 22px;
+}
+.keyboard .specialkeys .skey:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+    animation: keyboardanim .5s 1;
+}
+.keyboard .numpad
+{   
+    /* float: right; */
+    color: white;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 28%;
+    height: 60vh;
+    position: absolute;
+    right: 40px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 20px;
+    /* z-index: 2; */
+    padding: 20px;
+}
+.keyboard .numpad .number
+{
+    display: block;
+    margin: 5px 20px 5px 20px;
+    border: 2px solid rgba(181, 155, 155, 0.8);
+    padding: 2px 5px 2px 5px;
+    background-color: transparent;
+    color: white;
+    border-radius: 50%;
+    font-size: 50px;
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+.keyboard .numpad .number:hover
+{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;
+    color: black;
+}
+@keyframes keyboardanim
+{
+    0%{
+        transform: rotateX(0deg);
+    }
+    100%
+    {
+        transform: rotateX(360deg);
+    }
+}
