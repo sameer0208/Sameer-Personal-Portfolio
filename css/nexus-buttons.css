@@ -1,0 +1,334 @@
+/* ============================================
+   Nexus Command Buttons — tech UI layer
+   ============================================ */
+
+body.nexus-x .btn:not(.comm-transmit-btn) {
+  position: relative;
+  isolation: isolate;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  overflow: hidden;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+body.nexus-x .btn:not(.comm-transmit-btn)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  z-index: 2;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+body.nexus-x .btn:not(.comm-transmit-btn)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.55s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.nexus-x .btn:not(.comm-transmit-btn):hover::after {
+  transform: translateX(120%);
+}
+
+body.nexus-x .btn .btn-nexus-tag {
+  position: absolute;
+  top: 3px;
+  right: 8px;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  opacity: 0.7;
+  z-index: 3;
+  pointer-events: none;
+}
+
+body.nexus-x .btn i {
+  font-size: 1.15em;
+  z-index: 2;
+  position: relative;
+}
+
+/* Primary — execute */
+body.nexus-x .btn-primary:not(.comm-transmit-btn) {
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.55) 0%,
+    rgba(56, 189, 248, 0.35) 50%,
+    rgba(52, 211, 153, 0.25) 100%
+  );
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  box-shadow:
+    inset 0 0 24px rgba(124, 92, 255, 0.2),
+    0 0 28px rgba(56, 189, 248, 0.2);
+}
+
+body.nexus-x .btn-primary:not(.comm-transmit-btn)::before {
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.6);
+}
+
+body.nexus-x .btn-primary:not(.comm-transmit-btn) .btn-nexus-tag {
+  color: #34d399;
+}
+
+body.nexus-x .btn-primary:not(.comm-transmit-btn):hover {
+  transform: translateY(-3px);
+  border-color: #34d399;
+  box-shadow:
+    inset 0 0 32px rgba(52, 211, 153, 0.15),
+    0 0 40px rgba(56, 189, 248, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body.nexus-x .btn-primary:not(.comm-transmit-btn):hover::before {
+  box-shadow: 0 0 18px #34d399;
+}
+
+/* Outline — terminal cmd */
+body.nexus-x .btn-outline {
+  color: var(--text, #e8e8f0);
+  background: rgba(4, 6, 14, 0.75);
+  border: 1px solid rgba(124, 92, 255, 0.45);
+  box-shadow: inset 0 0 20px rgba(124, 92, 255, 0.06);
+}
+
+body.nexus-x .btn-outline::before {
+  background: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.45);
+}
+
+body.nexus-x .btn-outline .btn-nexus-tag {
+  color: #38bdf8;
+}
+
+body.nexus-x .btn-outline:hover {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.65);
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow:
+    inset 0 0 28px rgba(56, 189, 248, 0.08),
+    0 0 24px rgba(56, 189, 248, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Small — module chip */
+body.nexus-x .btn-sm {
+  padding: 0.55rem 1rem 0.55rem 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  clip-path: polygon(
+    6px 0,
+    100% 0,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    0 100%,
+    0 6px
+  );
+}
+
+body.nexus-x .btn-sm .btn-nexus-tag {
+  display: none;
+}
+
+body.nexus-x .btn-sm::before {
+  width: 2px;
+}
+
+body.nexus-x .btn-sm i {
+  font-size: 1rem;
+}
+
+body.nexus-x .btn-sm.btn-outline {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Repo card links */
+body.nexus-x .repo-links a {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.9rem 0.5rem 1rem;
+  color: var(--text-muted, #a0a0b8);
+  background: rgba(4, 6, 12, 0.8);
+  border: 1px solid rgba(124, 92, 255, 0.35);
+  border-radius: 3px;
+  clip-path: polygon(
+    5px 0,
+    100% 0,
+    100% calc(100% - 5px),
+    calc(100% - 5px) 100%,
+    0 100%,
+    0 5px
+  );
+  transition: var(--transition, 0.3s ease);
+}
+
+body.nexus-x .repo-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(56, 189, 248, 0.5);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+body.nexus-x .repo-links a:hover {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.15);
+  transform: translateY(-2px);
+}
+
+body.nexus-x .repo-links a:hover::before {
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+}
+
+/* Header cmd trigger */
+body.nexus-x .cmd-trigger,
+body.nexus-x .deck-cmd {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.45) !important;
+  border-radius: 4px !important;
+  clip-path: polygon(
+    6px 0,
+    100% 0,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    0 100%,
+    0 6px
+  );
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.12);
+  transition: var(--transition, 0.3s ease);
+}
+
+body.nexus-x .cmd-trigger:hover,
+body.nexus-x .deck-cmd:hover {
+  border-color: #34d399 !important;
+  box-shadow: 0 0 24px rgba(52, 211, 153, 0.2) !important;
+  color: #34d399 !important;
+}
+
+body.nexus-x .cmd-trigger kbd {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  background: rgba(124, 92, 255, 0.2) !important;
+  border: 1px solid rgba(124, 92, 255, 0.35);
+  color: #a78bfa !important;
+}
+
+/* Mobile cmd FAB */
+body.nexus-x .cmd-fab {
+  border-radius: 6px !important;
+  border: 2px solid rgba(56, 189, 248, 0.5) !important;
+  background: rgba(4, 6, 12, 0.92) !important;
+  box-shadow:
+    inset 0 0 20px rgba(124, 92, 255, 0.15),
+    0 0 30px rgba(56, 189, 248, 0.25) !important;
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    0 100%,
+    0 8px
+  );
+}
+
+body.nexus-x .cmd-fab i {
+  color: #38bdf8;
+}
+
+body.nexus-x .cmd-fab:hover {
+  border-color: #34d399 !important;
+  transform: scale(1.06) translateY(-2px);
+}
+
+/* About tabs as command switches */
+body.nexus-x .tab-links {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+  background: rgba(4, 6, 12, 0.6);
+  clip-path: polygon(
+    6px 0,
+    100% 0,
+    100% calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    0 100%,
+    0 6px
+  );
+}
+
+body.nexus-x .tab-links:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #38bdf8;
+}
+
+body.nexus-x .tab-links.active-link {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.55);
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.12);
+}
+
+body.nexus-x .btn:not(.btn-sm):not(.comm-transmit-btn) {
+  padding-top: 1.35rem;
+  padding-bottom: 1.15rem;
+}
+
+/* Active press */
+body.nexus-x .btn:not(.comm-transmit-btn):active {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.nexus-x .btn:not(.comm-transmit-btn)::after {
+    display: none;
+  }
+}

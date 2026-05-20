@@ -1,0 +1,874 @@
+/* ============================================
+   Tech Ops — ambient digital workforce (background)
+   ============================================ */
+
+.tech-ops--ambient {
+  --ops-parallax: 0px;
+  position: fixed;
+  left: 50%;
+  bottom: -2%;
+  z-index: -1;
+  width: min(1280px, 118vw);
+  pointer-events: none;
+  opacity: 0.38;
+  transform: translateX(-50%) translateY(var(--ops-parallax));
+  transition: opacity 0.4s ease;
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 12%,
+    black 35%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 12%,
+    black 35%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.tech-ops-inner {
+  width: 100%;
+}
+
+.tech-ops-stage {
+  position: relative;
+  padding: 2rem 0.5rem 2.8rem;
+  min-height: 200px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(124, 92, 255, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 22, 0.55) 0%,
+    rgba(7, 7, 14, 0.72) 45%,
+    rgba(18, 14, 32, 0.65) 100%
+  );
+  box-shadow: inset 0 0 80px rgba(124, 92, 255, 0.06);
+  overflow: hidden;
+}
+
+.tech-ops-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(56, 189, 248, 0.02) 2px,
+    rgba(56, 189, 248, 0.02) 4px
+  );
+  pointer-events: none;
+}
+
+.tech-ops-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tech-ops-link {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.2);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 8;
+  animation: ops-link-flow 2.5s linear infinite;
+}
+
+.tech-ops-link--b {
+  stroke: rgba(124, 92, 255, 0.25);
+  animation-duration: 3.2s;
+}
+
+.tech-ops-link--g {
+  stroke: rgba(52, 211, 153, 0.22);
+  animation-duration: 2.8s;
+}
+
+.ops-floor-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  transform: perspective(400px) rotateX(58deg) scale(1.4);
+  transform-origin: center 80%;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.ops-hologram-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56, 189, 248, 0.6),
+    rgba(52, 211, 153, 0.5),
+    transparent
+  );
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+  animation: ops-holo-scan 5s ease-in-out infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ops-drone {
+  position: absolute;
+  top: 8%;
+  left: -8%;
+  z-index: 4;
+  animation: ops-drone-fly 14s linear infinite;
+}
+
+.ops-drone-body {
+  display: block;
+  width: 22px;
+  height: 10px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #4a5568, #718096);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  position: relative;
+}
+
+.ops-drone-body::before,
+.ops-drone-body::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 14px;
+  height: 3px;
+  background: rgba(56, 189, 248, 0.35);
+  border-radius: 2px;
+}
+
+.ops-drone-body::before {
+  left: -4px;
+  animation: ops-drone-blade 0.12s linear infinite;
+}
+
+.ops-drone-body::after {
+  right: -4px;
+  animation: ops-drone-blade 0.12s linear infinite reverse;
+}
+
+.ops-drone-light {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 40px;
+  height: 20px;
+  margin-left: -20px;
+  background: radial-gradient(ellipse, rgba(56, 189, 248, 0.25), transparent 70%);
+}
+
+.ops-conveyor {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 6px;
+  height: 10px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.ops-conveyor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(56, 189, 248, 0.12) 8px,
+    rgba(56, 189, 248, 0.12) 10px
+  );
+  animation: ops-conveyor-belt 2s linear infinite;
+}
+
+.ops-crate {
+  position: absolute;
+  bottom: 11px;
+  width: 10px;
+  height: 8px;
+  border-radius: 1px;
+  background: rgba(124, 92, 255, 0.5);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  animation: ops-crate-move 8s linear infinite;
+}
+
+.ops-crate:nth-child(1) { animation-delay: 0s; }
+.ops-crate:nth-child(2) { animation-delay: 1.6s; background: rgba(56, 189, 248, 0.45); }
+.ops-crate:nth-child(3) { animation-delay: 3.2s; }
+.ops-crate:nth-child(4) { animation-delay: 4.8s; background: rgba(52, 211, 153, 0.4); }
+.ops-crate:nth-child(5) { animation-delay: 6.4s; }
+
+.tech-ops-stations {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.tech-ops-station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.35rem 0.2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tech-ops-scene {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* ---- Robot bay ---- */
+.ops-robot {
+  position: relative;
+  width: 52px;
+  height: 72px;
+}
+
+.ops-robot-head {
+  width: 28px;
+  height: 22px;
+  margin: 0 auto 4px;
+  border-radius: 6px 6px 4px 4px;
+  background: linear-gradient(180deg, #4a5568, #2d3748);
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  position: relative;
+}
+
+.ops-robot-head::before,
+.ops-robot-head::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 8px var(--accent-2);
+  animation: ops-eye-blink 3s step-end infinite;
+}
+
+.ops-robot-head::before { left: 5px; }
+.ops-robot-head::after { right: 5px; }
+
+.ops-robot-body {
+  width: 36px;
+  height: 28px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #5a6578, #3d4654);
+  border: 1px solid rgba(124, 92, 255, 0.4);
+}
+
+.ops-robot-base {
+  width: 44px;
+  height: 6px;
+  margin: 2px auto 0;
+  border-radius: 2px;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.ops-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  animation: ops-spark-fly 1.2s ease-out infinite;
+}
+
+.ops-spark--l {
+  left: 20%;
+  top: 30%;
+}
+
+.ops-spark::before,
+.ops-spark::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--success);
+  animation: ops-spark-fly 1.2s ease-out infinite 0.35s;
+}
+
+.ops-spark::before { left: 8px; top: -6px; }
+.ops-spark::after { left: -5px; top: 4px; animation-delay: 0.7s; }
+
+.ops-robot-arm {
+  position: absolute;
+  width: 22px;
+  height: 5px;
+  background: #4a5568;
+  border-radius: 3px;
+  top: 38px;
+  transform-origin: 4px center;
+}
+
+.ops-robot-arm--l {
+  left: -4px;
+  animation: ops-arm-l 2s ease-in-out infinite;
+}
+
+.ops-robot-arm--r {
+  right: -4px;
+  transform-origin: 18px center;
+  animation: ops-arm-r 2s ease-in-out infinite 0.4s;
+}
+
+.ops-robot-arm::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--accent-2);
+  box-shadow: 0 0 6px var(--accent-2);
+}
+
+.ops-robot-arm--l::after {
+  right: auto;
+  left: -4px;
+}
+
+/* ---- Developer pod ---- */
+.ops-dev-desk {
+  position: relative;
+  width: 70px;
+  height: 72px;
+}
+
+.ops-dev-monitor {
+  width: 56px;
+  height: 38px;
+  margin: 0 auto;
+  border-radius: 4px 4px 0 0;
+  border: 2px solid rgba(56, 189, 248, 0.4);
+  background: #0a0e14;
+  overflow: hidden;
+}
+
+.ops-dev-screen {
+  padding: 4px 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 5px;
+  line-height: 1.35;
+  color: var(--success);
+  text-align: left;
+  animation: ops-code-scroll 8s linear infinite;
+}
+
+.ops-dev-person {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 28px;
+}
+
+.ops-dev-person-head {
+  width: 14px;
+  height: 14px;
+  margin: 0 auto 2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ops-dev-person-body {
+  width: 24px;
+  height: 12px;
+  margin: 0 auto;
+  border-radius: 8px 8px 2px 2px;
+  background: linear-gradient(180deg, var(--accent), #5b21b6);
+}
+
+/* ---- Server rack ---- */
+.ops-rack {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 44px;
+}
+
+.ops-rack--tall .ops-rack-unit {
+  height: 12px;
+}
+
+.ops-cloud-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  animation: ops-cloud-pulse 3s ease-out infinite;
+  pointer-events: none;
+}
+
+.ops-rack-unit {
+  height: 14px;
+  border-radius: 2px;
+  background: #1a1f2e;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 4px;
+}
+
+.ops-rack-led {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  animation: ops-led-blink 1.5s ease-in-out infinite;
+}
+
+.ops-rack-unit:nth-child(1) .ops-rack-led:nth-child(1) { animation-delay: 0s; background: var(--success); }
+.ops-rack-unit:nth-child(2) .ops-rack-led:nth-child(1) { animation-delay: 0.3s; background: var(--accent-2); }
+.ops-rack-unit:nth-child(3) .ops-rack-led:nth-child(1) { animation-delay: 0.6s; background: var(--accent); }
+.ops-rack-unit:nth-child(2) .ops-rack-led:nth-child(2) { animation-delay: 0.9s; }
+.ops-rack-unit:nth-child(3) .ops-rack-led:nth-child(2) { animation-delay: 1.2s; background: var(--success); }
+
+/* ---- AI core ---- */
+.ops-ai-core {
+  position: relative;
+  width: 64px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ops-ai-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  animation: ops-ai-spin 12s linear infinite;
+}
+
+.ops-ai-ring--1 {
+  width: 56px;
+  height: 56px;
+}
+
+.ops-ai-ring--2 {
+  width: 40px;
+  height: 40px;
+  animation-direction: reverse;
+  animation-duration: 8s;
+}
+
+.ops-ai-ring--3 {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(52, 211, 153, 0.2);
+  animation-duration: 14s;
+}
+
+.ops-ai-brain {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent-3), var(--accent));
+  box-shadow: 0 0 20px rgba(124, 92, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  z-index: 1;
+  animation: ops-ai-pulse 2s ease-in-out infinite;
+}
+
+.ops-ai-brain i {
+  font-size: 1.5rem;
+}
+
+/* ---- Deploy hub ---- */
+.ops-deploy {
+  position: relative;
+  width: 56px;
+  height: 72px;
+}
+
+.ops-deploy-tower {
+  width: 20px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.2), rgba(52, 211, 153, 0.05));
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.ops-deploy-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(180deg, var(--success), rgba(52, 211, 153, 0.4));
+  animation: ops-deploy-fill 3s ease-in-out infinite;
+}
+
+.ops-deploy-rocket {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: var(--success);
+  animation: ops-rocket-idle 2.5s ease-in-out infinite;
+}
+
+/* ---- Central nexus hub ---- */
+.ops-nexus-hub {
+  position: relative;
+  width: 64px;
+  height: 80px;
+}
+
+.ops-hub-ring--outer {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  margin-left: -29px;
+  border-radius: 50%;
+  border: 1px dashed rgba(56, 189, 248, 0.25);
+  animation: ops-hub-spin 20s linear infinite reverse;
+}
+
+.ops-hub-core {
+  width: 36px;
+  height: 36px;
+  margin: 12px auto 0;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25), transparent 70%);
+  animation: ops-hub-pulse 2.5s ease-in-out infinite;
+}
+
+.ops-hub-orbit {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  animation: ops-hub-spin 5s linear infinite;
+}
+
+.ops-hub-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 8px var(--accent-2);
+  transform: rotate(var(--hub-angle, 0deg)) translateY(-22px);
+}
+
+/* QA security bot */
+.ops-qa-bot {
+  position: relative;
+  width: 48px;
+  height: 76px;
+}
+
+.ops-qa-screen {
+  width: 40px;
+  height: 22px;
+  margin: 0 auto 4px;
+  padding: 3px 4px;
+  border-radius: 3px;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: #0a0e14;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ops-qa-line {
+  height: 2px;
+  border-radius: 1px;
+  background: rgba(56, 189, 248, 0.4);
+  animation: ops-qa-line 1.5s ease-in-out infinite;
+}
+
+.ops-qa-line:nth-child(2) { animation-delay: 0.2s; width: 80%; }
+.ops-qa-line--ok {
+  background: var(--success);
+  animation-delay: 0.4s;
+}
+
+.ops-qa-body {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #3d4a5c, #2a3344);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--success);
+}
+
+.ops-qa-scanner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+  animation: ops-qa-scanner 2.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.tech-ops-station[data-ops-station="ai"] .tech-ops-scene {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.tech-ops-station[data-ops-station="ai"] .ops-ai-core {
+  height: 64px;
+}
+
+.tech-ops-station[data-ops-station="ai"] .ops-deploy {
+  width: 28px;
+  height: 58px;
+}
+
+/* Floating data packets across stage */
+.tech-ops-packets {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.ops-packet {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--accent-2);
+  box-shadow: 0 0 10px var(--accent-2);
+  opacity: 0;
+  animation: ops-packet-fly 4s linear infinite;
+}
+
+.ops-packet:nth-child(1) { top: 35%; animation-delay: 0s; }
+.ops-packet:nth-child(2) { top: 55%; animation-delay: 1.2s; background: var(--success); box-shadow: 0 0 10px var(--success); }
+.ops-packet:nth-child(3) { top: 45%; animation-delay: 2.4s; background: var(--accent-3); }
+.ops-packet:nth-child(4) { top: 65%; animation-delay: 3.1s; }
+.ops-packet:nth-child(5) { top: 40%; animation-delay: 0.8s; }
+.ops-packet:nth-child(6) { top: 28%; animation-delay: 1.8s; background: var(--accent); }
+.ops-packet:nth-child(7) { top: 62%; animation-delay: 2.6s; }
+.ops-packet:nth-child(8) { top: 48%; animation-delay: 3.5s; background: var(--success); }
+
+@keyframes ops-link-flow {
+  to { stroke-dashoffset: -28; }
+}
+
+@keyframes ops-arm-l {
+  0%, 100% { transform: rotate(-25deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes ops-arm-r {
+  0%, 100% { transform: rotate(25deg); }
+  50% { transform: rotate(-10deg); }
+}
+
+@keyframes ops-eye-blink {
+  0%, 92%, 100% { opacity: 1; }
+  94%, 96% { opacity: 0.2; }
+}
+
+@keyframes ops-code-scroll {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-50%); }
+}
+
+@keyframes ops-led-blink {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+@keyframes ops-ai-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ops-ai-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(124, 92, 255, 0.5); }
+  50% { transform: scale(1.06); box-shadow: 0 0 28px rgba(124, 92, 255, 0.7); }
+}
+
+@keyframes ops-deploy-fill {
+  0%, 100% { height: 25%; }
+  50% { height: 75%; }
+}
+
+@keyframes ops-rocket-idle {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
+}
+
+@keyframes ops-hub-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(56, 189, 248, 0); }
+}
+
+@keyframes ops-hub-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ops-packet-fly {
+  0% { left: -2%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { left: 102%; opacity: 0; }
+}
+
+@keyframes ops-holo-scan {
+  0%, 100% { top: 8%; opacity: 0.3; }
+  50% { top: 78%; opacity: 0.85; }
+}
+
+@keyframes ops-drone-fly {
+  0% { left: -8%; transform: translateY(0); }
+  25% { transform: translateY(-6px); }
+  50% { transform: translateY(2px); }
+  75% { transform: translateY(-4px); }
+  100% { left: 108%; transform: translateY(0); }
+}
+
+@keyframes ops-drone-blade {
+  to { transform: scaleX(0.2); opacity: 0.5; }
+}
+
+@keyframes ops-conveyor-belt {
+  to { background-position: 20px 0; }
+}
+
+@keyframes ops-crate-move {
+  0% { left: -3%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { left: 103%; opacity: 0; }
+}
+
+@keyframes ops-spark-fly {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(12px, -14px) scale(0); }
+}
+
+@keyframes ops-cloud-pulse {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+@keyframes ops-qa-line {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+@keyframes ops-qa-scanner {
+  0%, 100% { top: 0; }
+  50% { top: 100%; }
+}
+
+/* Fade ops when user is in dense content (optional readability) */
+body.is-scrolled-deep .tech-ops--ambient {
+  opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+  .tech-ops--ambient {
+    display: none;
+  }
+}
+
+@media (min-width: 1600px) {
+  .tech-ops--ambient {
+    width: min(1400px, 100vw);
+    opacity: 0.42;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-ops--ambient {
+    opacity: 0.2;
+  }
+
+  .tech-ops-link,
+  .ops-robot-arm,
+  .ops-robot-head::before,
+  .ops-robot-head::after,
+  .ops-dev-screen,
+  .ops-rack-led,
+  .ops-ai-ring,
+  .ops-ai-brain,
+  .ops-deploy-fill,
+  .ops-deploy-rocket,
+  .ops-hub-core,
+  .ops-hub-orbit,
+  .ops-hub-ring--outer,
+  .ops-packet,
+  .ops-drone,
+  .ops-hologram-scan,
+  .ops-crate,
+  .ops-conveyor::before,
+  .ops-spark,
+  .ops-cloud-pulse,
+  .ops-qa-scanner,
+  .ops-qa-line {
+    animation: none !important;
+  }
+
+  .ops-deploy-fill {
+    height: 50%;
+  }
+}

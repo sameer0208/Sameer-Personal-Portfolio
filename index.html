@@ -4,405 +4,2391 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Sayyed Sameer Basir</title>
-    <!-- Box Icons -->
+    <meta
+      name="description"
+      content="Sayyed Sameer Basir — Associate Developer at Thoughtworks, Full Stack Web Developer, and freelancer based in Hyderabad, India."
+    />
+    <meta name="author" content="Sayyed Sameer Basir" />
+    <title>Sayyed Sameer Basir | Associate Developer & Full Stack Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    
+    <style>
+      body.loader-active { overflow: hidden; }
+      #nexus-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: #030308;
+      }
+    </style>
+    <link rel="stylesheet" href="css/nexus-loader.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="images/myimg.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/digital.css" />
+    <link rel="stylesheet" href="css/universe.css" />
+    <link rel="stylesheet" href="css/extraordinary.css" />
+    <link rel="stylesheet" href="css/nexus-features.css" />
+    <link rel="stylesheet" href="css/nexus-sys.css" />
+    <link rel="stylesheet" href="css/tech-pulse.css" />
+    <link rel="stylesheet" href="css/tech-ops.css" />
+    <link rel="stylesheet" href="css/section-realm.css" />
+    <link rel="stylesheet" href="css/nexus-nav.css" />
+    <link rel="stylesheet" href="css/comm-link.css" />
+    <link rel="stylesheet" href="css/nexus-footer.css" />
+    <link rel="stylesheet" href="css/nexus-buttons.css" />
+    <link rel="stylesheet" href="css/theme-notice.css" />
+    <link rel="shortcut icon" href="images/myimg.png" type="image/x-icon" />
   </head>
-  <body>
-    <!-- header design -->
-    <header class="header">
-      <a href="" class="logo">Welcome to Sameer Portfolio</a>
-      <i class="bx bx-menu" id="menu-icon"></i>
-      <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#internship">Internships</a>
-        <a href="#services">Services</a>
-        <a href="#portfolio">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-    <!-- Home Section Design -->
-    <section class="home" id="home">
-      <div class="home-content">
-        <h3>Hello, It's Me</h3>
-        <h1>Sayyed Sameer Basir</h1>
-        <h3>And I'm a <span class="multiple-text"></span></h3>
-        <p>
-          Glad to see your eagerness to know about me. Explore about myself, and I hope you would like my work
-        </p>
-        <div class="social-media">
-          <a href="https://www.instagram.com/sameer_k_0208" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
-          <a href="https://github.com/sameer0208" target="_blank"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" target="_blank"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://www.youtube.com/@learningwithsameer2863" target="_blank"><i class="bx bxl-youtube"></i></a>
-        </div>
-        <a href="resume/mycv.pdf" target="_blank" class="btn">Download CV</a>
+  <body class="digital-realm nexus-x loader-active">
+    <div
+      id="nexus-loader"
+      class="nexus-loader"
+      role="progressbar"
+      aria-label="Booting portfolio systems"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+    >
+      <canvas id="loader-canvas" class="loader-canvas" aria-hidden="true"></canvas>
+      <div class="loader-scanlines" aria-hidden="true"></div>
+      <div class="loader-vignette" aria-hidden="true"></div>
+
+      <div class="loader-hud-corners" aria-hidden="true">
+        <span class="loader-corner loader-corner--tl"></span>
+        <span class="loader-corner loader-corner--tr"></span>
+        <span class="loader-corner loader-corner--bl"></span>
+        <span class="loader-corner loader-corner--br"></span>
       </div>
 
-      <div class="home-img">
-        <img src="images/myimg.png" alt="" />
-      </div>
-    </section>
+      <div class="loader-shell">
+        <header class="loader-head">
+          <div class="loader-head-left">
+            <span class="loader-os-badge">NEXUS_OS</span>
+            <span class="loader-os-ver">v2.0.26</span>
+          </div>
+          <div class="loader-head-center">
+            <span class="loader-head-pulse"></span>
+            BOOT SEQUENCE
+          </div>
+          <div class="loader-head-right">
+            <span id="loader-clock">00:00:00</span>
+            <span class="loader-head-tag">SECURE</span>
+          </div>
+        </header>
 
-    <!-- about section design -->
-    <section class="about" id="about">
-      <div class="about-img">
-        <img src="images/offimg.png" alt="" />
-      </div>
-      <div class="about-content">
-        <h2 class="heading">About <span>Me</span></h2>
-        <h3>Full Stack Web Developer</h3>
-        <p class="aboutme">
-          As a passionate and detail-oriented developer with 2 years of experience, I have a proven track record of delivering high-quality code and building web applications. <br> I thrive on solving complex problems and staying up-to-date with the latest technologies and trends in the industry. My skills include proficiency in HTML, CSS, JavaScript, C, C++, Java, Python. <br> I am a strong communicator and collaborator, and I am dedicated to working closely with clients and stakeholders to ensure their needs are met. My goal is to continue to grow my skills and make a meaningful impact in the field of software development.
-        </p>
-        <div class="tab-titles">
-          <p class="tab-links active-link"  onclick="opentab('skills')">Skills</p>
-          <p class="tab-links" onclick="opentab('experience')">Experience</p>
-          <p class="tab-links" onclick="opentab('education')">Education</p>
-        </div>
-        <!-- Skills -->
-        <div class="tab-contents active-tab" id="skills">
-          <ul>
-            <li><span>UI/UX</span><br>Designing Website Interfaces</li>
-            <li><span>Front End Web Development</span><br><ul><li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li></ul></li>
-            <li><span>MERN Web Development</span><br><ul><li>MongoDB</li>
-            <li>Express JS</li>
-            <li>React JS</li>
-            <li>Node JS</li></ul></li>
-            <ul>
-              <li><span>Programming Languages</span><br><ul><li>C</li>
-                <li>Java</li>
-                <li>Python</li>
-                <li>C++</li></ul></li>
-            </ul>
-            <li><span>Query Languages</span><br><ul><li>MySQL</li>
-              <li>MongoDB</li>
-              </ul></li>
-          </ul>
-          <ul>
-            <li><span>Oral Skills</span><br><ul><li>Communication Skills</li>
-              <li>Leadership Skills</li>
-              <li>Interpersonal Skills</li>
-              <li>Project Management Skills</li>
-            <li>Problem-Solving Skills</li></ul></li>
-          </ul>
-        </div>
-        <!-- Experience -->
-        <div class="tab-contents" id="experience">
-          <ul>
-            <li><span>Technical Club President</span><br>At KLH University<br>Description : Conducting Technical Events, Webinars, Competitions, and Workshops.</li>
-            <li><span>CSI (Computer Society of India) Vice President</span><br>At KLH University<br>Description : Organizing different workshops, webinars, seminars and also Tech related competitions.</li>
-            <li><span>Curriculum Engineer - Full Stack Web Development</span><br>Basta Internship<br>Description : Develop Educational Content, create Educational Videos and will take live classes as a Instructor/mentor, also makes assignments and projects related to the curriculum.</li>
-            <li><span>ELTAI (English Language Teacher's Association of India) Intern</span><br>ELTAI Internship<br>Description : In my internship, I excel in video production, content writing, and social media management, creating compelling content aligned with the company's brand. I strive for engaging and impactful communication across various platforms.</li>
-            <li><span>Web Development Intern</span><br>At CodeClause<br>Description : As a Web Development Intern at CodeClause, I honed my coding skills and collaborated with experienced professionals on various web projects, enhancing my knowledge of HTML, CSS, JavaScript, React.js, and Node.js. The experience, including code reviews and feedback, enriched my passion for web development and built a strong foundation for my future career.</li>
-            <li><span>Data Analytics Intern</span><br>At XtraLeap<br>Description : Assist the data analytics team with data collection, data entry, data cleaning, data analysis, creating visual dashboards and report preparation.</li>
-            <li><span>Data Analytics Intern</span><br>At CodSoft<br>Description : As a Data Science Intern, I worked on real projects, collaborated with experienced data scientists to gain hands-on experience and made a meaningful impact. This dynamic environment expanded my skills and contribute to data-driven decision-making.</li>
-            
-          </ul>
-        </div>
-        <!-- Education -->
-        <div class="tab-contents" id="education">
-          <ul>
-            <li><span>2021-2025</span><br>CGPA : 9.9<br>B.Tech CSE Honors<br>KL University Hyderabad</li>
-            <li><span>2020-2021</span><br>Grade : 93%<br>12th Standard<br>Kendriya Vidyalaya Trimulgherry (CBSE BOARD)</li>
-            <li><span>2018-2019</span><br>Grade : 92%<br>10th Standard<br>Kendriya Vidyalaya Sunjuwan (CBSE BOARD)</li>
-          </ul>
-        </div>
-        <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" class="btn" target="_blank">Click to know More</a>
-      </div>
-    </section>
-    <!-- internship section design -->
-    <section class="services" id="internship">
-      <h2 class="heading">My <span>Internships</span></h2>
-      <div class="services-container">
-        <div class="services-box">
-          <img src="images/bastalogo.png"/>
-          <h3>Curriculum Engineer - Full Stack Web Development</h3>
-          <p>Oct 2022 - Feb 2023 | Bengaluru, Karnataka, India</p>
-          <img src="images/mebasta2.png"/>
-          <p>
-            During this tenure at E360Basta Edtech India Pvt. Ltd, I effectively designed and developed Educational content, created Educational Videos
-and took live classes as a instructor/mentor, I also made assignments and projects related to the curriculum. As I  have a good command over these skills. During the time I worked, I cleared 7 days trial period and my performance in the trial period was proportional with my employment tenure. I worked under our Chief Operational Officer. 
-          </p>
-          <a href="resume/bastaofferletter.pdf" class="btn" target="_blank">Check Offer Letter</a>
-          <a href="resume/bastaexperienceletter.pdf" class="btn" target="_blank">Check Experience Letter</a>
-          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/" class="btn" target="_blank">Know More on LinkedIn</a>
-        </div>
-      </div>
-        <br><br>
-        <div class="services-container">
-        <div class="services-box">
-          <img src="images/eltailogo.png"/>
-          <h3>Content Creator Intern</h3>
-          <p>June 2023 - Aug 2023</p>
-          
-          <p>
-            During my internship, I am immersed in the exciting world of content creation, where I get to work on a diverse range of tasks. One of my primary responsibilities is creating engaging and informative modules, which involve both video production and content writing. I thoroughly enjoy the process of conceptualizing ideas, scripting, shooting, and editing videos to deliver compelling content that captures the audience's attention.
-
-            In addition to video production, I also have the opportunity to contribute to the company's social media presence. I create captivating content specifically tailored for various social media platforms, aiming to engage and interact with the target audience effectively. Through my content writing skills, I strive to convey the company's brand voice and messaging in a concise and engaging manner, ensuring consistent and impactful communication across all their social media handles. 
-          </p>
-          <a href="resume//eltaiofferletter.pdf" class="btn" target="_blank">Check Offer Letter</a>
-          <a href="#" class="btn" target="_blank" >Check Experience Letter</a>
-          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/" class="btn" target="_blank">Know More on LinkedIn</a>
-        </div>
-      </div>
-        <br><br>
-        <div class="services-container">
-          <div class="services-box">
-            <img src="images/cclogo.png"/>
-            <h3>Web Development Intern</h3>
-            <p>June 2023 - Aug 2023</p>
-            <img src="images/ccimg0.png"/>
-            <p>
-              During my internship at CodeClause as a Web Development Intern, I had the opportunity to work on diverse web development projects and contribute my coding skills. Collaborating with experienced developers and designers, I gained valuable insights into industry best practices. I strengthened my knowledge of HTML, CSS, JavaScript, React.js, and Node.js while using tools like Git and Bootstrap. Engaging in code reviews and receiving feedback helped me improve continuously. This internship enriched my passion for web development, equipped me with valuable skills, and provided a solid foundation for my future career. 
-            </p>
-            <a href="resume/ccol.pdf" class="btn" target="_blank">Check Offer Letter</a>
-            <a href="resume/ccicl.pdf" class="btn" target="_blank" >Check Experience Letter</a>
-            <a href="resume/cclor.pdf" class="btn" target="_blank" >Check Letter of Recommendation</a>
-            <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/" class="btn" target="_blank">Know More on LinkedIn</a>
+        <div class="loader-core-stage">
+          <div class="loader-reactor" aria-hidden="true">
+            <span class="loader-orbit loader-orbit--a"></span>
+            <span class="loader-orbit loader-orbit--b"></span>
+            <span class="loader-orbit loader-orbit--c"></span>
+            <span class="loader-ring loader-ring--outer"></span>
+            <span class="loader-ring loader-ring--mid"></span>
+            <span class="loader-ring loader-ring--inner"></span>
+            <span class="loader-core-glow"></span>
+            <span class="loader-mark">S</span>
+          </div>
+          <div class="loader-identity">
+            <p class="loader-identity-eyebrow">// portfolio uplink</p>
+            <h1 class="loader-identity-name">SAMEER BASIR</h1>
+            <p class="loader-identity-role">Associate Developer · Full Stack · Nexus</p>
           </div>
         </div>
-        <br><br>
-        <div class="services-container">
-          <div class="services-box">
-            <img src="images/xtraleaplogo.png"/>
-            <h1>XtraLeap</h1><br>
-            <h3>Data Analytics Intern</h3>
-            <p>July 2023 - Oct 2023</p>
-            <img src="images/xlimg.png"/>
-            <p>
-              Assist the data analytics team with data collection. data entry. data cleaning, data analysis. and
-              report preparation.
-              Ensure that all work is performed in compliance with applicable laws, regulations, and policies.
-              Other duties as assigned.
-            </p>
-            <a href="resume/xtraleap_offer_letter.pdf" class="btn" target="_blank">Check Offer Letter</a>
-            <a href="#" class="btn" target="_blank">Check Experience Letter</a>
-            <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/" class="btn" target="_blank">Know More on LinkedIn</a>
-          </div>
-        </div>
-        <br><br>
-        <div class="services-container">
-          <div class="services-box">
-            <img src="images/codsoftlogo.png"/>
-            
-            <h3>Data Analytics Intern</h3>
-            <p>Oct 2023 - Nov 2023</p>
-            <!-- <img src="images/xlimg.png"/> -->
-            <p>
-              As an intern, I performed all assigned tasks i.e. Projects based on Data Science Domain to the best of my ability and
-follow any lawful and reasonable instructions provided to me.
-            </p>
-            <a href="resume/codsoft_offerletter.pdf" class="btn" target="_blank">Check Offer Letter</a>
-            <a href="#" class="btn" target="_blank">Check Experience Letter</a>
-            <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/" class="btn" target="_blank">Know More on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-      
-    </section>
-    <!-- services section design -->
-    <section class="services" id="services">
-      <h2 class="heading">Our <span>Services</span></h2>
-      <div class="services-container">
-        <div class="services-box">
-          <i class="bx bx-code-alt"></i>
-          <h3>Web Development</h3>
-          <p>
-            Web projects developed using <b>HTML, CSS, JavaScript, Django and Flask Frameworks, MERN (MongoDB, Express.js, React.js, Node.js) </b> and for backend <b>MySQL and MongoDB Server </b>.
-          </p>
-          <a href="https://github.com/sameer0208?tab=repositories" class="btn" target="_blank">Check on GitHub</a>
-          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/certifications/" class="btn" target="_blank">Certifications</a>
-        </div>
-      </div>
-      <div class="services-container">
-        <div class="services-box">
-          <i class="bx bx-laptop"></i>
-          <h3>Programming / Coding Skills</h3>
-          <p>
-            Equipped with the Programming skills in <b>C, C++, Java, Python.</b> 
-          </p>
-          <a href="https://www.stopstalk.com/user/profile/sameer0208" class="btn" target="_blank">Check Coding Status</a>
-          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/certifications/" class="btn" target="_blank">Certifications</a>
-        </div>
-      </div>
-      <div class="services-container">
-        <div class="services-box">
-          <i class="bx bxs-paint"></i>
-          <h3>Graphics Designing</h3>
-          <p>
-            Enriched with creativity and innovation for Graphics Designing using <b>Adobe Illustrator</b>
-          </p>
-          <a href="https://www.shutterstock.com/g/new_images02?_gl=1*5dbew3*_ga*NjgyNjY5MTY1LjE2ODAxNjc1NDI.*_ga_5JRYE4Y8J9*MTY4MDE2NzY0MS4xLjEuMTY4MDE2Nzc4NC42MC4wLjA.*_fplc*S2NjNkpqajNCZ3F6aFhpMld0SSUyRjRjVElGMnE0RnNsbDhCUzdiSHdjTTNnJTJCcWhLWnJ2MjdJY0wyU215NXdiM0MlMkJ5OUtVU2lDZXBPVXhrUDVHQ1VGazUlMkY5JTJCY1U4N0p4SEpGTThGUVBSQmZOTUJQRGx6a2ElMkY0NXBySUdGbW9BJTNEJTNE" class="btn" target="_blank">Check My Work</a>
-        </div>
-      </div>
 
-      <div class="services-container">
-        <div class="services-box">
-          <i class="bx bx-video"></i>
-          <h3>Video Editing</h3>
-          <p>
-            Premium Video Editing with high-quality using <b>Wondershare Filmora</b> and Adobe After Effects</b>.
-          </p>
-          <a href="https://www.youtube.com/@learningwithsameer2863" class="btn" target="_blank">Visit to my YouTube Channel</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- New Portfolio Design -->
-    <div id="portfolio">
-      <div class="container">
-        <h2 class="heading">Latest <span>Project</span></h2>
-        <div class="work-list portfolio-box">
-          <div class="work">
-            <img src="images/ste.png" alt="" />
-            <div class="layer">
-              <h3>Sameer Text Editor</h3>
-              <p>
-                Sameer Text Editor is created using pure ReactJS. Edit text here and save your time. All the actions with a single click. Easy to use and understand with a user-friendly UI/UX Interface.
-              </p>
-              <a href="#" target="_blank"><i class="bx bx-link-external"></i></a>
+        <div class="loader-panels">
+          <div class="loader-terminal">
+            <div class="loader-panel-head">
+              <i class="bx bx-terminal"></i>
+              <span>/var/log/nexus.boot</span>
+              <span class="loader-cursor-blink" aria-hidden="true">_</span>
             </div>
+            <pre class="loader-log" id="loader-log" aria-live="polite"></pre>
           </div>
-          <div class="work">
-            <img src="images/fcw.png" alt="" />
-            <div class="layer">
-                <h3>Flipkart Clone Website</h3>
-                <p>
-                  This website is created using HTML5 and CSS3 which is the clone of the famous online shopping website Flipkart.
-                </p>
-                <a href="myprojects/Flipkart Clone Website/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+
+          <div class="loader-modules">
+            <div class="loader-panel-head">
+              <i class="bx bx-chip"></i>
+              <span>SECTOR MOUNT</span>
+            </div>
+            <ul class="loader-mod-list" id="loader-mod-list">
+              <li class="loader-mod" data-mod="core.init">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">core.init</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+              <li class="loader-mod" data-mod="profile.sys">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">profile.sys</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+              <li class="loader-mod" data-mod="work.log">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">work.log</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+              <li class="loader-mod" data-mod="cred.db">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">cred.db</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+              <li class="loader-mod" data-mod="svc.mesh">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">svc.mesh</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+              <li class="loader-mod" data-mod="repo.grid">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">repo.grid</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+              <li class="loader-mod" data-mod="comm.link">
+                <span class="loader-mod-led"></span>
+                <span class="loader-mod-id">comm.link</span>
+                <span class="loader-mod-state">WAIT</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <footer class="loader-foot">
+          <div class="loader-segments" id="loader-segments" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="loader-progress-track">
+            <div class="loader-progress-fill" id="loader-progress-fill"></div>
+            <div class="loader-progress-glow" id="loader-progress-glow" aria-hidden="true"></div>
+          </div>
+          <div class="loader-foot-meta">
+            <span class="loader-phase" id="loader-phase">INITIALIZING</span>
+            <span class="loader-pct" id="loader-pct">0%</span>
+          </div>
+        </footer>
+      </div>
+
+      <div class="loader-exit-flash" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/nexus-loader.js"></script>
+    <canvas id="network-canvas" aria-hidden="true"></canvas>
+    <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+    <div class="data-streams" aria-hidden="true">
+      <div class="data-stream data-stream--left"></div>
+      <div class="data-stream data-stream--right"></div>
+    </div>
+    <div class="cursor-spotlight" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="code-fragments" aria-hidden="true">
+      <pre class="code-fragment">async function deploy() {
+  await build(pipeline);
+  return ship(feature);
+}</pre>
+      <pre class="code-fragment">interface Engineer {
+  stack: string[];
+  ship(): Product;
+}</pre>
+      <pre class="code-fragment">git commit -m "feat: scale"
+npm run test && npm run build</pre>
+      <pre class="code-fragment">SELECT * FROM experience
+WHERE role = 'developer';</pre>
+      <pre class="code-fragment">docker compose up -d
+kubectl apply -f k8s/</pre>
+      <pre class="code-fragment">export const nexus = () =>
+  connect(world);</pre>
+    </div>
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="tech-ops tech-ops--ambient" aria-hidden="true">
+      <div class="tech-ops-inner">
+        <div class="tech-ops-stage">
+          <div class="ops-hologram-scan" aria-hidden="true"></div>
+          <div class="ops-floor-grid" aria-hidden="true"></div>
+          <svg
+            class="tech-ops-links"
+            viewBox="0 0 1000 120"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path class="tech-ops-link" d="M60,60 H940" />
+            <path class="tech-ops-link tech-ops-link--b" d="M60,60 Q500,15 940,60" />
+            <path class="tech-ops-link tech-ops-link--g" d="M60,60 Q500,95 940,60" />
+            <path class="tech-ops-link" d="M120,60 L500,60 L880,60" />
+            <path class="tech-ops-link tech-ops-link--b" d="M200,60 L350,40 L500,60 L650,40 L800,60" />
+            <path class="tech-ops-link tech-ops-link--g" d="M200,60 L350,80 L500,60 L650,80 L800,60" />
+          </svg>
+          <div class="ops-drone" aria-hidden="true">
+            <span class="ops-drone-body"></span>
+            <span class="ops-drone-light"></span>
+          </div>
+          <div class="tech-ops-packets" aria-hidden="true">
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+            <span class="ops-packet"></span>
+          </div>
+          <div class="ops-conveyor" aria-hidden="true">
+            <span class="ops-crate"></span>
+            <span class="ops-crate"></span>
+            <span class="ops-crate"></span>
+            <span class="ops-crate"></span>
+            <span class="ops-crate"></span>
+          </div>
+          <div class="tech-ops-stations">
+            <article class="tech-ops-station" data-ops-station="robot">
+              <div class="tech-ops-scene">
+                <div class="ops-robot ops-robot--heavy">
+                  <div class="ops-robot-head"></div>
+                  <div class="ops-robot-arm ops-robot-arm--l"></div>
+                  <div class="ops-robot-arm ops-robot-arm--r"></div>
+                  <div class="ops-robot-body"></div>
+                  <div class="ops-robot-base"></div>
+                </div>
+                <div class="ops-spark ops-spark--l" aria-hidden="true"></div>
               </div>
-          </div>
-          <div class="work">
-            <img src="images/icw.png" alt="" />
-            <div class="layer">
-                <h3>International Conference Webpage</h3>
-                <p>
-                  Website is created using HTML5 and CSS3 for the college International Conference.
-                </p>
-                <a href="myprojects/International Conference Webpage/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+            </article>
+            <article class="tech-ops-station" data-ops-station="dev">
+              <div class="tech-ops-scene">
+                <div class="ops-dev-desk">
+                  <div class="ops-dev-monitor">
+                    <div class="ops-dev-screen">
+                      const ship = () =&gt;<br />
+                      npm test ✓ build OK<br />
+                      git push · deploy<br />
+                      const ship = () =&gt;<br />
+                      npm test ✓ build OK
+                    </div>
+                  </div>
+                  <div class="ops-dev-person">
+                    <div class="ops-dev-person-head"></div>
+                    <div class="ops-dev-person-body"></div>
+                  </div>
+                </div>
               </div>
-          </div>
-          <div class="work">
-            <img src="images/stw.png" alt="" />
-            <div class="layer">
-                <h3>Sameer Type Writer</h3>
-                <p>
-                  Website is created using HTML5, CSS3 and JavaScript where you can type using 3D Keyboard.
-                </p>
-                <a href="myprojects/Sameer Type Writer/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+            </article>
+            <article class="tech-ops-station" data-ops-station="nexus">
+              <div class="tech-ops-scene">
+                <div class="ops-nexus-hub">
+                  <div class="ops-hub-ring ops-hub-ring--outer"></div>
+                  <div class="ops-hub-orbit">
+                    <span class="ops-hub-dot" style="--hub-angle: 0deg"></span>
+                    <span class="ops-hub-dot" style="--hub-angle: 72deg"></span>
+                    <span class="ops-hub-dot" style="--hub-angle: 144deg"></span>
+                    <span class="ops-hub-dot" style="--hub-angle: 216deg"></span>
+                    <span class="ops-hub-dot" style="--hub-angle: 288deg"></span>
+                  </div>
+                  <div class="ops-hub-core"></div>
+                </div>
               </div>
-          </div>
-          <div class="work">
-            <img src="images/scw.png" alt="" />
-            <div class="layer">
-                <h3>Standard Clock Website</h3>
-                <p>
-                 Website is created using HTML5, CSS and Bootstrap, which shows live time with date.
-                </p>
-                <a href="myprojects/Standard Clock Website/project1.html" target="_blank"><i class="bx bx-link-external"></i></a>
+            </article>
+            <article class="tech-ops-station" data-ops-station="cloud">
+              <div class="tech-ops-scene">
+                <div class="ops-rack ops-rack--tall">
+                  <div class="ops-rack-unit"><span class="ops-rack-led"></span><span class="ops-rack-led"></span></div>
+                  <div class="ops-rack-unit"><span class="ops-rack-led"></span><span class="ops-rack-led"></span></div>
+                  <div class="ops-rack-unit"><span class="ops-rack-led"></span><span class="ops-rack-led"></span></div>
+                  <div class="ops-rack-unit"><span class="ops-rack-led"></span><span class="ops-rack-led"></span></div>
+                  <div class="ops-rack-unit"><span class="ops-rack-led"></span><span class="ops-rack-led"></span></div>
+                </div>
+                <div class="ops-cloud-pulse" aria-hidden="true"></div>
               </div>
-          </div>
-          <div class="work">
-            <img src="images/twl.png" alt="" />
-            <div class="layer">
-                <h3>TODOs List Website</h3>
-                <p>
-                  Website is created using HTML5, CSS3, Bootstrap and JavaScript, which allows user to keep their TODOs List.
-                </p>
-                <a href="myprojects/TODOs List Website/project2.html" target="_blank"><i class="bx bx-link-external"></i></a>
+            </article>
+            <article class="tech-ops-station" data-ops-station="ai">
+              <div class="tech-ops-scene">
+                <div class="ops-ai-core">
+                  <span class="ops-ai-ring ops-ai-ring--1"></span>
+                  <span class="ops-ai-ring ops-ai-ring--2"></span>
+                  <span class="ops-ai-ring ops-ai-ring--3"></span>
+                  <span class="ops-ai-brain"><i class="bx bx-brain"></i></span>
+                </div>
+                <div class="ops-deploy">
+                  <div class="ops-deploy-tower">
+                    <span class="ops-deploy-fill"></span>
+                    <i class="bx bx-rocket ops-deploy-rocket"></i>
+                  </div>
+                </div>
               </div>
-          </div>
-          <div class="work">
-            <img src="images/ycw.png" alt="" />
-            <div class="layer">
-                <h3>YouTube Channel Wesbite</h3>
-                <p>
-                  Website created using HTML5, CSS3 and JavaScript to demonstrate my YouTube videos and certifications.
-                </p>
-                <a href="myprojects/YouTube Channel Website/index.html" target="_blank"><i class="bx bx-link-external"></i></a>
+            </article>
+            <article class="tech-ops-station" data-ops-station="qa">
+              <div class="tech-ops-scene">
+                <div class="ops-qa-bot">
+                  <div class="ops-qa-screen">
+                    <span class="ops-qa-line"></span>
+                    <span class="ops-qa-line"></span>
+                    <span class="ops-qa-line ops-qa-line--ok"></span>
+                  </div>
+                  <div class="ops-qa-body">
+                    <i class="bx bx-shield-quarter"></i>
+                  </div>
+                  <div class="ops-qa-scanner" aria-hidden="true"></div>
+                </div>
               </div>
+            </article>
           </div>
-          
+        </div>
+      </div>
+    </div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <div class="hud hud-tl" aria-hidden="true">
+      <div class="hud-brand">NEXUS<span> // portfolio</span></div>
+      <div class="hud-status">system online</div>
+      <div id="hud-load" class="hud-load">load: 0.15 0.14 0.12</div>
+    </div>
+    <div class="hud hud-tr" aria-hidden="true">
+      <div id="hud-coords">X:000 Y:000</div>
+      <div id="hud-module" class="hud-module">core.init</div>
+      <div id="hud-trace" class="hud-trace">hop 1 → core.init (10.0.0.1)</div>
+      <div id="hud-netstat" class="hud-netstat">HTTPS github.com:443</div>
+    </div>
+    <div id="dmesg-toast" class="dmesg-toast" aria-live="polite" aria-atomic="true"></div>
+    <div id="hud-anomaly" class="hud-anomaly" aria-hidden="true">ANOMALY DETECTED</div>
+    <aside id="net-topology" class="net-topology" aria-label="Network topology map">
+      <p class="net-topology-title">TOPOLOGY</p>
+    </aside>
+    <aside id="sys-monitor" class="sys-monitor" aria-label="Process monitor">
+      <p class="sys-monitor-title">PROCESSES</p>
+      <div id="sys-proc-list"></div>
+    </aside>
+    <div class="hud hud-bl" aria-hidden="true">
+      <div id="hud-depth" class="hud-depth">DEPTH 0%</div>
+      <div id="hud-bandwidth" class="hud-bandwidth">LINK 1Gbps</div>
+    </div>
+    <div class="hud hud-br hud-hint" aria-hidden="true">
+      <kbd>⌘</kbd> + <kbd>K</kbd> command
+    </div>
+
+    <div class="room-toast" id="room-toast" aria-live="polite" aria-atomic="true">
+      <span class="room-toast-portal" aria-hidden="true"></span>
+      <span class="room-toast-label">ENTERING</span>
+      <span class="room-toast-name" id="room-toast-name">core.init</span>
+    </div>
+
+    <nav class="journey-depth" id="journey-depth" aria-label="Journey depth map"></nav>
+
+    <div class="cmd-palette" id="cmd-palette" aria-hidden="true" role="dialog" aria-label="Command palette">
+      <div class="cmd-backdrop"></div>
+      <div class="cmd-dialog">
+        <div class="cmd-header">
+          <i class="bx bx-terminal"></i>
+          <span>Navigate the nexus</span>
+        </div>
+        <input
+          type="text"
+          class="cmd-input"
+          id="cmd-input"
+          placeholder="Search modules, links..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div class="cmd-list" id="cmd-list" role="listbox"></div>
+        <div class="cmd-footer">
+          <span>↑↓ navigate · enter select · esc close</span>
+          <span class="cmd-footer-theme">Cosmetic tech theme · fictional labels · portfolio atmosphere only</span>
         </div>
       </div>
     </div>
 
-    <!-- Contact Section Design -->
-    <section class="contact" id="contact">
-      <h2 class="heading">Contact <span>Me</span></h2>
-      <form name="submit-to-google-sheet">
-        <div class="input-box">
-          <input type="text" name="Name" id="" placeholder="Full Name" />
-          <input type="text" name="Email" id="" placeholder="Email Address" />
-        </div>
-        <div class="input-box">
-          <input type="number" name="Mobile" id="" placeholder="Mobile Number" />
-          <input type="text" name="Subject" id="" placeholder="Email Subject" />
-        </div>
-        <textarea
-          name="Message"
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-        ></textarea>
-        <input type="submit" value="Send Message" class="btn" />
-        <p id="msg"></p>
-        <div class="social-media">
-          <a href="https://www.instagram.com/sameer_k_0208" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
-          <a href="https://github.com/sameer0208" target="_blank"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" target="_blank"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://www.youtube.com/@learningwithsameer2863" target="_blank"><i class="bx bxl-youtube"></i></a>
-        </div>
-      </form>
-    </section>
-
-    <!-- footer section design -->
-    <footer class="footer">
-      <div class="footer-text">
-        <p>
-          Copyright &copy; 2023 by Sayyed Sameer Basir | All Rights Reserved
-        </p>
+    <header class="header nexus-header">
+      <div class="nav-deck-glow" aria-hidden="true"></div>
+      <div class="nav-deck-frame" aria-hidden="true">
+        <span class="deck-corner deck-corner--tl"></span>
+        <span class="deck-corner deck-corner--tr"></span>
+        <span class="deck-corner deck-corner--bl"></span>
+        <span class="deck-corner deck-corner--br"></span>
+        <div class="deck-border-chase"></div>
       </div>
-      <div class="footer-iconTop">
-        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      <div class="header-inner">
+        <div class="header-brand-col">
+          <a href="#home" class="logo nexus-logo">
+            <span class="logo-mark">S</span>
+            <span class="logo-stack">
+              <span class="logo-text">Sameer<span class="accent">.</span></span>
+              <span class="logo-sys">nexus.os</span>
+            </span>
+          </a>
+          <p class="nav-theme-notice" role="note">
+            <i class="bx bx-shield-quarter" aria-hidden="true"></i>
+            <span>
+              Cosmetic tech-terminal styling for atmosphere only.
+              <em>Nexus</em>, <em>uplink</em>, and sector tags are fictional UI labels — not real products or brands.
+              Nothing suspicious — just this portfolio’s creative feel.
+            </span>
+          </p>
+        </div>
+
+        <div class="nav-command-deck">
+          <div class="nav-deck-status" aria-live="polite">
+            <span class="deck-led"></span>
+            <span class="deck-tag">CMD_DECK</span>
+            <span class="deck-sep">//</span>
+            <span class="deck-sector" id="nav-status-sector">SECTOR :: core.init</span>
+            <span class="deck-sep">//</span>
+            <span class="deck-link">UPLINK OK</span>
+            <span class="deck-bars" id="nav-signal-bars" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </span>
+          </div>
+          <nav class="navbar nexus-navbar" aria-label="Main navigation">
+            <div class="nav-slot-track" aria-hidden="true">
+              <span class="nav-slot-laser" id="nav-slot-laser"></span>
+            </div>
+            <a href="#home" class="nav-slot active" data-index="01" data-module="core.init">
+              <span class="nav-slot-id">01</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-home-alt"></i>
+                <span class="nav-slot-label">HOME</span>
+                <span class="nav-slot-mod">core.init</span>
+              </span>
+            </a>
+            <a href="#about" class="nav-slot" data-index="02" data-module="profile.sys">
+              <span class="nav-slot-id">02</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-user"></i>
+                <span class="nav-slot-label">ABOUT</span>
+                <span class="nav-slot-mod">profile.sys</span>
+              </span>
+            </a>
+            <a href="#experience" class="nav-slot" data-index="03" data-module="work.log">
+              <span class="nav-slot-id">03</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-briefcase"></i>
+                <span class="nav-slot-label">WORK</span>
+                <span class="nav-slot-mod">work.log</span>
+              </span>
+            </a>
+            <a href="#certifications" class="nav-slot" data-index="04" data-module="cred.db">
+              <span class="nav-slot-id">04</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-certification"></i>
+                <span class="nav-slot-label">CERTS</span>
+                <span class="nav-slot-mod">cred.db</span>
+              </span>
+            </a>
+            <a href="#services" class="nav-slot" data-index="05" data-module="svc.mesh">
+              <span class="nav-slot-id">05</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-grid-alt"></i>
+                <span class="nav-slot-label">SVC</span>
+                <span class="nav-slot-mod">svc.mesh</span>
+              </span>
+            </a>
+            <a href="#portfolio" class="nav-slot" data-index="06" data-module="repo.grid">
+              <span class="nav-slot-id">06</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-code-alt"></i>
+                <span class="nav-slot-label">REPOS</span>
+                <span class="nav-slot-mod">repo.grid</span>
+              </span>
+            </a>
+            <a href="#contact" class="nav-slot" data-index="07" data-module="comm.link">
+              <span class="nav-slot-id">07</span>
+              <span class="nav-slot-core">
+                <i class="bx bx-envelope"></i>
+                <span class="nav-slot-label">COMM</span>
+                <span class="nav-slot-mod">comm.link</span>
+              </span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="header-tools">
+          <button
+            type="button"
+            class="cmd-trigger deck-cmd"
+            id="cmd-trigger"
+            aria-label="Open command palette"
+          >
+            <i class="bx bx-terminal"></i>
+            <kbd>⌘K</kbd>
+          </button>
+          <button
+            type="button"
+            class="menu-toggle nexus-menu-toggle"
+            id="menu-icon"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+          >
+            <span class="menu-toggle-lines" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class="nav-gateway-backdrop" id="nav-gateway-backdrop" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="home section" id="home">
+        <div class="galaxy-field" aria-hidden="true">
+          <canvas id="galaxy-canvas"></canvas>
+        </div>
+        <div class="universe-portal" aria-hidden="true">
+          <div class="portal-ring portal-ring-1"></div>
+          <div class="portal-ring portal-ring-2"></div>
+          <div class="portal-ring portal-ring-3"></div>
+        </div>
+        <div class="perspective-floor" aria-hidden="true"></div>
+        <div class="container">
+        <div class="home-grid">
+          <div class="home-content">
+            <span class="hero-badge">
+              <span class="pulse-dot"></span>
+              Associate Developer @ Thoughtworks
+            </span>
+            <p class="eyebrow">Full Stack Engineer</p>
+            <h1 class="hero-title">
+              Sayyed Sameer
+              <span class="hero-title-accent">Basir</span>
+            </h1>
+            <p class="hero-role">
+              I craft digital experiences as a
+              <span class="multiple-text gradient-text"></span>
+            </p>
+            <p class="hero-location">
+              <i class="bx bx-map"></i> Hyderabad, Telangana, India
+            </p>
+            <p class="hero-desc">
+              B.Tech CSE (Honors) graduate building scalable web applications,
+              solving complex problems, and creating educational content. Currently
+              at Thoughtworks — exploring AI, cloud, and full-stack innovation.
+            </p>
+            <div class="hero-stats">
+              <div class="stat glass-card" data-tilt>
+                <span class="stat-value" data-count="10" data-suffix="+">10+</span>
+                <span class="stat-label">Certifications</span>
+              </div>
+              <div class="stat glass-card" data-tilt>
+                <span class="stat-value" data-count="2" data-suffix="+">2+</span>
+                <span class="stat-label">Years Exp.</span>
+              </div>
+              <div class="stat glass-card" data-tilt>
+                <span class="stat-value" data-count="35" data-suffix="+">35+</span>
+                <span class="stat-label">GitHub Repos</span>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <a href="resume/mycv.pdf" target="_blank" class="btn btn-primary"
+                ><i class="bx bx-download"></i> Download CV</a
+              >
+              <a href="#contact" class="btn btn-outline">Let's collaborate</a>
+            </div>
+            <p class="digital-enter-hint">
+              <i class="bx bx-down-arrow-alt"></i>
+              Scroll to enter the nexus
+            </p>
+            <div class="social-media">
+              <a
+                href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                ><i class="bx bxl-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/sameer0208"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                ><i class="bx bxl-github"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/sameer_k_0208"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                ><i class="bx bxl-instagram-alt"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/@learningwithsameer2863"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                ><i class="bx bxl-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="home-img">
+            <div class="orbit-system" aria-hidden="true">
+              <div class="orbit-ring orbit-ring-1">
+                <span class="orbit-node" style="--angle: 0deg">React.js</span>
+                <span class="orbit-node" style="--angle: 72deg">Node.js</span>
+                <span class="orbit-node" style="--angle: 144deg">JavaScript</span>
+                <span class="orbit-node" style="--angle: 216deg">MongoDB</span>
+                <span class="orbit-node" style="--angle: 288deg">Express</span>
+              </div>
+              <div class="orbit-ring orbit-ring-2">
+                <span class="orbit-node" style="--angle: 36deg">Python</span>
+                <span class="orbit-node" style="--angle: 108deg">Java</span>
+                <span class="orbit-node" style="--angle: 180deg">Django</span>
+                <span class="orbit-node" style="--angle: 252deg">MySQL</span>
+                <span class="orbit-node" style="--angle: 324deg">MERN</span>
+              </div>
+              <div class="orbit-ring orbit-ring-3">
+                <span class="orbit-node" style="--angle: 0deg">HTML</span>
+                <span class="orbit-node" style="--angle: 90deg">CSS</span>
+                <span class="orbit-node" style="--angle: 180deg">Flask</span>
+                <span class="orbit-node" style="--angle: 270deg">Git</span>
+              </div>
+            </div>
+            <div class="profile-frame digital-frame">
+              <span class="digital-corner digital-corner--tl" aria-hidden="true"></span>
+              <span class="digital-corner digital-corner--tr" aria-hidden="true"></span>
+              <span class="digital-corner digital-corner--bl" aria-hidden="true"></span>
+              <span class="digital-corner digital-corner--br" aria-hidden="true"></span>
+              <span class="digital-scan" aria-hidden="true"></span>
+              <div class="profile-glow" aria-hidden="true"></div>
+              <div class="profile-ring">
+                <img src="images/myimg.png" alt="Sayyed Sameer Basir" />
+              </div>
+              <div class="profile-card glass-card">
+                <span class="profile-card-label">Currently</span>
+                <strong>Thoughtworks</strong>
+                <span class="profile-card-meta">Associate Developer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-console reveal" aria-label="Nexus developer console">
+          <div class="hero-console-bar">
+            <div class="hero-console-title">
+              <i class="bx bx-terminal"></i>
+              <span>nexus-console</span>
+              <span class="hero-console-tab active">engineer.ts</span>
+              <span class="hero-console-tab">output.log</span>
+            </div>
+            <div class="hero-console-meta">
+              <span class="console-ping" id="console-ping">ping 12ms</span>
+              <span class="console-status"><span class="tech-led"></span> connected</span>
+            </div>
+          </div>
+          <div class="hero-code-panel">
+            <div class="hero-code-body">
+                <div class="hero-code-lines" aria-hidden="true">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</div>
+              <pre class="hero-code-content" id="hero-code-content"><code></code></pre>
+            </div>
+            <div class="hero-console-output" id="hero-console-output" aria-live="polite">
+              <span class="output-prefix">→</span>
+              <span class="output-text">Initializing Sameer Basir profile...</span>
+            </div>
+            <div class="console-game-wrap" id="console-game-wrap">
+              <canvas id="snake-canvas" width="320" height="160"></canvas>
+              <p class="game-hint">
+                <span>NEXUS SNAKE</span> · Arrows move · ESC quit · Score:
+                <span id="snake-score">0</span>
+              </p>
+            </div>
+            <div class="hero-console-input">
+              <span class="input-prefix" aria-hidden="true">nexus@portfolio:~$</span>
+              <input
+                type="text"
+                id="console-cmd-input"
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="Console command"
+                placeholder="try: help, ls, scan, game, goto about..."
+              />
+            </div>
+            <p class="console-easter-hint">
+              Easter egg: <kbd>ls</kbd> · <kbd>scan</kbd> · <kbd>game</kbd> · <kbd>help</kbd>
+            </p>
+          </div>
+        </aside>
+        </div>
+
+        <div class="tech-marquee" aria-hidden="true">
+          <div class="tech-marquee-track">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>MySQL</span><span>Python</span><span>Java</span><span>Django</span><span>Flask</span><span>MERN</span><span>Git</span><span>Bootstrap</span><span>REST APIs</span>
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>MySQL</span><span>Python</span><span>Java</span><span>Django</span><span>Flask</span><span>MERN</span><span>Git</span><span>Bootstrap</span><span>REST APIs</span>
+          </div>
+        </div>
+
+        <div class="tech-pulse" aria-label="Live tech world activity">
+          <div class="tech-pulse-grid">
+            <div class="tech-pulse-status">
+              <span class="tech-pulse-live">
+                <span class="tech-pulse-live-dot" aria-hidden="true"></span>
+                Tech world · live
+              </span>
+              <div class="tech-pulse-sectors" id="tech-pulse-sectors"></div>
+            </div>
+            <div class="tech-pulse-feed">
+              <ul class="tech-pulse-track" id="tech-pulse-track"></ul>
+              <ul class="tech-pulse-static" id="tech-pulse-static"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about section" id="about">
+        <div class="container about-grid">
+          <div class="about-img reveal">
+            <div class="profile-ring profile-ring--sm">
+              <img src="images/offimg.png" alt="Sameer at work" />
+            </div>
+            <aside class="profile-dock" aria-label="Profile system telemetry">
+              <div class="profile-dock-header">
+                <span class="profile-dock-status">
+                  <i class="bx bx-radio-circle-marked" aria-hidden="true"></i>
+                  profile.sys · online
+                </span>
+                <span class="profile-dock-id">UID sameer@nexus</span>
+              </div>
+              <div class="profile-signal-wrap">
+                <div class="profile-signal-head">
+                  <span id="profile-signal-label">Live signal</span>
+                  <span id="profile-signal-range">profile.sys</span>
+                </div>
+                <div class="profile-signal-stage">
+                  <canvas
+                    class="profile-signal"
+                    id="profile-signal"
+                    aria-hidden="true"
+                  ></canvas>
+                  <span class="profile-signal-dot" id="profile-signal-dot" aria-hidden="true"></span>
+                </div>
+                <div class="profile-signal-axis" id="profile-signal-axis" aria-hidden="true"></div>
+              </div>
+              <dl class="profile-meta">
+                <div class="profile-meta-row">
+                  <dt>name</dt>
+                  <dd>Sayyed Sameer Basir</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt>role</dt>
+                  <dd>Associate Developer</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt>org</dt>
+                  <dd>Thoughtworks · Hyderabad</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt>edu</dt>
+                  <dd>B.Tech CSE (Hons) · KL University</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt>since</dt>
+                  <dd>Jul 2025 (current role)</dd>
+                </div>
+                <div class="profile-meta-row">
+                  <dt>view</dt>
+                  <dd class="profile-meta-pulse" id="profile-meta-view">Skills tab · loading…</dd>
+                </div>
+              </dl>
+              <div class="profile-metrics" id="profile-metrics">
+                <div
+                  class="profile-metric"
+                  data-metric="cgpa"
+                  data-value="9.91"
+                  data-max="10"
+                >
+                  <div class="profile-metric-top">
+                    <span>CGPA · KL University</span>
+                    <span class="profile-metric-val">9.91/10</span>
+                  </div>
+                  <p class="profile-metric-hint">Alumni Sponsored Gold Medal (CSE)</p>
+                  <div class="profile-metric-bar"><span></span></div>
+                </div>
+                <div
+                  class="profile-metric"
+                  data-metric="certs"
+                  data-value="8"
+                  data-max="10"
+                >
+                  <div class="profile-metric-top">
+                    <span>Certifications</span>
+                    <span class="profile-metric-val">8 / 10+</span>
+                  </div>
+                  <p class="profile-metric-hint">8 on portfolio · 10+ on LinkedIn</p>
+                  <div class="profile-metric-bar"><span></span></div>
+                </div>
+                <div
+                  class="profile-metric"
+                  data-metric="roles"
+                  data-value="9"
+                  data-max="9"
+                >
+                  <div class="profile-metric-top">
+                    <span>Roles & internships</span>
+                    <span class="profile-metric-val">9</span>
+                  </div>
+                  <p class="profile-metric-hint">Oct 2022 – present · Experience tab</p>
+                  <div class="profile-metric-bar"><span></span></div>
+                </div>
+                <div
+                  class="profile-metric"
+                  data-metric="skills"
+                  data-value="30"
+                  data-max="30"
+                >
+                  <div class="profile-metric-top">
+                    <span>Skills listed</span>
+                    <span class="profile-metric-val">30</span>
+                  </div>
+                  <p class="profile-metric-hint">6 categories · Skills tab</p>
+                  <div class="profile-metric-bar"><span></span></div>
+                </div>
+                <div class="profile-metric profile-metric--fact">
+                  <div class="profile-metric-top">
+                    <span>GitHub · sameer0208</span>
+                    <span class="profile-metric-val">35+</span>
+                  </div>
+                  <p class="profile-metric-hint">Public repositories (portfolio section)</p>
+                </div>
+              </div>
+              <p class="profile-log" id="profile-log" aria-live="polite">
+                <span class="profile-log-prefix">&gt;</span>
+                <span class="profile-log-text">Initializing profile telemetry...</span>
+              </p>
+              <nav class="profile-uplinks" aria-label="Quick links">
+                <a
+                  href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="profile-uplink"
+                  title="LinkedIn"
+                >
+                  <i class="bx bxl-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="https://github.com/sameer0208"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="profile-uplink"
+                  title="GitHub"
+                >
+                  <i class="bx bxl-github"></i>
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.youtube.com/@learningwithsameer2863"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="profile-uplink"
+                  title="YouTube"
+                >
+                  <i class="bx bxl-youtube"></i>
+                  <span>YouTube</span>
+                </a>
+                <a
+                  href="resume/mycv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="profile-uplink"
+                  title="Download CV"
+                >
+                  <i class="bx bx-download"></i>
+                  <span>CV</span>
+                </a>
+              </nav>
+            </aside>
+          </div>
+          <div class="about-content reveal">
+            <header class="section-header section-header--left" data-section="01">
+              <p class="eyebrow">Introduction</p>
+              <h2 class="heading">About <span class="accent">Me</span></h2>
+              <p class="section-subtitle">
+                Associate Developer @ Thoughtworks · Full Stack Web Developer
+              </p>
+            </header>
+            <p class="aboutme">
+              I hold a B.Tech in Computer Science and Engineering (Honors) from
+              KL University with a deep passion for technology and innovation. As
+              a Full Stack Web Developer, I build dynamic web applications using
+              modern stacks including MERN, and stay current with emerging tech
+              like AI and cloud computing. I contribute to EPICS community
+              projects and NSS, and share educational content on my YouTube
+              channel
+              <strong>Learning With Sameer</strong>. I thrive in collaborative,
+              challenging environments — from debugging complex systems to
+              mentoring peers — with a logical mindset and continuous learning
+              at the core of everything I do.
+            </p>
+            <div class="about-highlights">
+              <div class="highlight-chip">
+                <i class="bx bx-medal"></i> Alumni Gold Medal · CSE · CGPA 9.91
+              </div>
+              <div class="highlight-chip">
+                <i class="bx bx-briefcase"></i> Associate Developer @
+                Thoughtworks
+              </div>
+              <div class="highlight-chip">
+                <i class="bx bx-video"></i> Learning With Sameer (YouTube)
+              </div>
+            </div>
+            <div class="tab-titles" role="tablist">
+              <button
+                type="button"
+                class="tab-links active-link"
+                role="tab"
+                aria-selected="true"
+                data-tab="skills"
+              >
+                Skills
+              </button>
+              <button
+                type="button"
+                class="tab-links"
+                role="tab"
+                aria-selected="false"
+                data-tab="experience-tab"
+              >
+                Experience
+              </button>
+              <button
+                type="button"
+                class="tab-links"
+                role="tab"
+                aria-selected="false"
+                data-tab="education"
+              >
+                Education
+              </button>
+            </div>
+            <div class="tab-contents active-tab" id="skills" role="tabpanel">
+              <div class="skill-group">
+                <h4>Full Stack & Web</h4>
+                <div class="tags">
+                  <span>HTML</span><span>CSS</span><span>JavaScript</span
+                  ><span>React.js</span><span>Node.js</span><span>Express</span
+                  ><span>MongoDB</span><span>MySQL</span><span>Git</span
+                  ><span>Bootstrap</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h4>Backend & Frameworks</h4>
+                <div class="tags">
+                  <span>Django</span><span>Flask</span><span>MERN</span
+                  ><span>REST APIs</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h4>Programming</h4>
+                <div class="tags">
+                  <span>Java</span><span>Python</span><span>C</span
+                  ><span>C++</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h4>Data & Analytics</h4>
+                <div class="tags">
+                  <span>Data Analysis</span><span>Data Visualization</span
+                  ><span>Dashboard Design</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h4>Design & Media</h4>
+                <div class="tags">
+                  <span>UI/UX</span><span>Adobe Illustrator</span
+                  ><span>Video Editing</span><span>Filmora</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h4>Soft Skills</h4>
+                <div class="tags">
+                  <span>Leadership</span><span>Communication</span
+                  ><span>Problem Solving</span><span>Collaboration</span
+                  ><span>Agile</span>
+                </div>
+              </div>
+            </div>
+            <div class="tab-contents" id="experience-tab" role="tabpanel">
+              <div class="timeline">
+                <article class="timeline-item timeline-item--current">
+                  <span class="timeline-date">Jul 2025 – Present</span>
+                  <span class="timeline-role">Associate Developer</span>
+                  <span class="timeline-org">Thoughtworks · Hyderabad</span>
+                  <p>Engineering & Technical · Specialist.</p>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Jan – May 2025</span>
+                  <span class="timeline-role">Product Engineering Intern</span>
+                  <span class="timeline-org">EffiGO · Hyderabad</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Jan – Mar 2025</span>
+                  <span class="timeline-role">Freelance</span>
+                  <span class="timeline-org">Turito · Hyderabad</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Nov 2024 – Jan 2025</span>
+                  <span class="timeline-role">Web Development Content Developer</span>
+                  <span class="timeline-org">Turito · Hyderabad</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Oct – Nov 2023</span>
+                  <span class="timeline-role">Data Science Intern</span>
+                  <span class="timeline-org">CodSoft · India</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Jul – Oct 2023</span>
+                  <span class="timeline-role">Data Analytics Intern</span>
+                  <span class="timeline-org">XtraLeap · Hyderabad</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Jul – Sep 2023</span>
+                  <span class="timeline-role">Web Development Intern</span>
+                  <span class="timeline-org">CodeClause · Pune</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Jun – Aug 2023</span>
+                  <span class="timeline-role">Content Creator Intern</span>
+                  <span class="timeline-org">ELT@I · India</span>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">Oct 2022 – Feb 2023</span>
+                  <span class="timeline-role">Curriculum Engineer — Full Stack</span>
+                  <span class="timeline-org">BASTA · Bengaluru</span>
+                </article>
+              </div>
+            </div>
+            <div class="tab-contents" id="education" role="tabpanel">
+              <div class="timeline">
+                <article class="timeline-item">
+                  <span class="timeline-date">2021 – 2025</span>
+                  <span class="timeline-role"
+                    >B.Tech, Computer Science (Honors)</span
+                  >
+                  <span class="timeline-org">KL University · Vijayawada</span>
+                  <p>CGPA: 9.91 · Alumni Sponsored Gold Medal (CSE)</p>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">2020 – 2021</span>
+                  <span class="timeline-role">12th Standard (Science)</span>
+                  <span class="timeline-org"
+                    >Kendriya Vidyalaya Trimulgherry · CBSE</span
+                  >
+                  <p>Grade: 93%</p>
+                </article>
+                <article class="timeline-item">
+                  <span class="timeline-date">2018 – 2019</span>
+                  <span class="timeline-role">10th Standard</span>
+                  <span class="timeline-org"
+                    >Kendriya Vidyalaya Sunjuwan · CBSE</span
+                  >
+                  <p>Grade: 92%</p>
+                </article>
+              </div>
+            </div>
+            <a
+              href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="bx bxl-linkedin"></i> Connect on LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="experience section" id="experience">
+        <div class="container">
+          <header class="section-header reveal" data-section="02">
+            <p class="eyebrow">Career Journey</p>
+            <h2 class="heading">Work <span class="accent">Experience</span></h2>
+            <p class="section-subtitle section-subtitle--center">
+              Complete professional timeline from my
+              <a
+                href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-link"
+                >LinkedIn experience</a
+              >.
+            </p>
+          </header>
+
+          <div class="exp-timeline reveal">
+            <!-- 1. Thoughtworks -->
+            <article class="exp-timeline-item exp-timeline-item--current">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge">Current</span>
+                  <span class="exp-timeline-date">Jul 2025 – Present · 9 mos</span>
+                </div>
+                <h3>Associate Developer</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> Thoughtworks · Hyderabad,
+                  Telangana, India
+                </p>
+                <p class="exp-timeline-meta">Engineering and Technical · Specialist</p>
+                <p class="exp-timeline-desc">
+                  Building software at a global IT & services company focused on
+                  technical excellence, inclusion, and social impact. Completed
+                  Thoughtworks University (TWU 92) onboarding.
+                </p>
+              </div>
+            </article>
+
+            <!-- 2. EffiGO -->
+            <article class="exp-timeline-item exp-timeline-item--effigo">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Jan 2025 – May 2025 · 4 mos</span>
+                </div>
+                <h3>Product Engineering Intern</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> EffiGO (BOB eProcure Solutions Pvt
+                  Ltd) · Hyderabad, Telangana, India
+                </p>
+                <p class="exp-timeline-meta">Engineering and Technical · Intern</p>
+                <p class="exp-timeline-desc">
+                  Completed internship at EffiGO Global — a leading procurement
+                  company offering streamlined procurement processes and cost
+                  savings. Product engineering with mentorship, meaningful work,
+                  and a culture of continuous learning.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="https://github.com/sameer0208/Effigo-Courses-Learning"
+                    class="btn btn-sm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Project Repo</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Turito Freelance -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Freelance</span>
+                  <span class="exp-timeline-date">Jan 2025 – Mar 2025 · 2 mos</span>
+                </div>
+                <h3>Freelance</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> Turito · Hyderabad, Telangana,
+                  India
+                </p>
+                <p class="exp-timeline-meta">Other</p>
+              </div>
+            </article>
+
+            <!-- 4. Turito Content Developer -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Nov 2024 – Jan 2025 · 2 mos</span>
+                </div>
+                <h3>Web Development Content Developer</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> Turito · Hyderabad, Telangana,
+                  India
+                </p>
+                <p class="exp-timeline-desc">
+                  Turito is a live learning platform for SAT, ACT, AP, and online
+                  one-on-one tutoring for grades 1–12. Created web development
+                  educational content and learning materials.
+                </p>
+              </div>
+            </article>
+
+            <!-- 5. CodSoft -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Oct 2023 – Nov 2023 · 1 mo</span>
+                </div>
+                <h3>Data Science Intern</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> CodSoft · India
+                </p>
+                <p class="exp-timeline-meta">Research · Intern</p>
+                <p class="exp-timeline-desc">
+                  Part of a dynamic team working on real projects spanning data
+                  collection, analysis, and visualization. Collaborated with
+                  experienced data scientists, uncovered insights, and
+                  contributed to data-driven decision-making in a collaborative,
+                  innovative environment.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="resume/codsoft_offerletter.pdf"
+                    class="btn btn-sm"
+                    target="_blank"
+                    >Offer Letter</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 6. XtraLeap -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Jul 2023 – Oct 2023 · 3 mos</span>
+                </div>
+                <h3>Data Analytics Intern</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> Xtraleap India Pvt Ltd ·
+                  Hyderabad, Telangana, India
+                </p>
+                <p class="exp-timeline-meta">Education · Intern</p>
+                <p class="exp-timeline-desc">
+                  Assisted the data analytics team with data collection, data
+                  entry, data cleaning, data analysis, data visualization with
+                  backend support, dashboard creation and report preparation.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="resume/xtraleap_offer_letter.pdf"
+                    class="btn btn-sm"
+                    target="_blank"
+                    >Offer Letter</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 7. CodeClause -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Jul 2023 – Sep 2023 · 2 mos</span>
+                </div>
+                <h3>Web Development Intern</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> CodeClause · Pune, Maharashtra,
+                  India
+                </p>
+                <p class="exp-timeline-meta">Engineering and Technical · Intern</p>
+                <p class="exp-timeline-desc">
+                  Worked on diverse web development projects and contributed coding
+                  skills. Collaborated with experienced developers and designers,
+                  gaining insights into industry best practices. Strengthened
+                  knowledge of HTML, CSS, JavaScript, React.js, and Node.js using
+                  Git and Bootstrap. Improved continuously through code reviews
+                  and feedback.
+                </p>
+                <div class="card-actions">
+                  <a href="resume/ccol.pdf" class="btn btn-sm" target="_blank"
+                    >Offer Letter</a
+                  >
+                  <a href="resume/ccicl.pdf" class="btn btn-sm" target="_blank"
+                    >Experience</a
+                  >
+                  <a href="resume/cclor.pdf" class="btn btn-sm" target="_blank"
+                    >Recommendation</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. ELT@I -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Jun 2023 – Aug 2023 · 2 mos</span>
+                </div>
+                <h3>Intern</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> ELT@I · India
+                </p>
+                <p class="exp-timeline-meta">Other</p>
+                <p class="exp-timeline-desc">
+                  Immersed in content creation — creating engaging modules through
+                  video production and content writing. Conceptualized ideas,
+                  scripted, shot, and edited videos. Contributed to social media with
+                  brand-aligned content tailored for various platforms, ensuring
+                  consistent and impactful communication.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="resume/eltaiofferletter.pdf"
+                    class="btn btn-sm"
+                    target="_blank"
+                    >Offer Letter</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 9. BASTA -->
+            <article class="exp-timeline-item">
+              <div class="exp-timeline-marker" aria-hidden="true"></div>
+              <div class="exp-timeline-body">
+                <div class="exp-timeline-head">
+                  <span class="role-badge role-badge--intern">Internship</span>
+                  <span class="exp-timeline-date">Oct 2022 – Feb 2023 · 4 mos</span>
+                </div>
+                <h3>Curriculum Engineer — Full Stack Web Development</h3>
+                <p class="exp-timeline-org">
+                  <i class="bx bx-buildings"></i> BASTA (E360Basta) · Bengaluru,
+                  Karnataka, India
+                </p>
+                <p class="exp-timeline-desc">
+                  Developed educational content, created educational videos, and
+                  took live classes as an instructor/mentor. Made assignments and
+                  projects related to the full stack web development curriculum.
+                </p>
+                <div class="card-actions">
+                  <a
+                    href="resume/bastaofferletter.pdf"
+                    class="btn btn-sm"
+                    target="_blank"
+                    >Offer Letter</a
+                  >
+                  <a
+                    href="resume/bastaexperienceletter.pdf"
+                    class="btn btn-sm"
+                    target="_blank"
+                    >Experience</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <a
+            href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/experience/"
+            class="btn btn-outline exp-linkedin-cta reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bxl-linkedin"></i> View full experience on LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="certifications section" id="certifications">
+        <div class="container">
+          <header class="section-header reveal" data-section="03">
+            <p class="eyebrow">Credentials</p>
+            <h2 class="heading">
+              Licenses & <span class="accent">Certifications</span>
+            </h2>
+            <p class="section-subtitle section-subtitle--center">
+              <a
+                href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/certifications/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-link"
+                >View all on LinkedIn</a
+              >
+            </p>
+          </header>
+          <div class="cert-grid reveal">
+            <article class="cert-card">
+              <span class="cert-issuer">freeCodeCamp</span>
+              <h3>JavaScript Algorithms & Data Structures</h3>
+              <span class="cert-date">Jun 2022</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">freeCodeCamp</span>
+              <h3>Responsive Web Design</h3>
+              <span class="cert-date">Jun 2021</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">LinkedIn Learning</span>
+              <h3>Oracle Java Certification Series (3 courses)</h3>
+              <span class="cert-date">Jul 2022</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">LinkedIn Learning</span>
+              <h3>HTML Essential Training</h3>
+              <span class="cert-date">Apr 2022</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">LinkedIn Learning</span>
+              <h3>Learning Java</h3>
+              <span class="cert-date">Mar 2022</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">Great Learning</span>
+              <h3>Intro to Graphic Design with Photoshop</h3>
+              <span class="cert-date">Jul 2022</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">Great Learning</span>
+              <h3>Python Programming</h3>
+              <span class="cert-date">Apr 2021</span>
+            </article>
+            <article class="cert-card">
+              <span class="cert-issuer">LinkedIn Learning</span>
+              <h3>Learning 3D Printing</h3>
+              <span class="cert-date">Feb 2022</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section class="services section" id="services">
+        <div class="container">
+          <header class="section-header reveal" data-section="04">
+            <p class="eyebrow">What I offer</p>
+            <h2 class="heading">My <span class="accent">Services</span></h2>
+          </header>
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <div class="service-icon"><i class="bx bx-code-alt"></i></div>
+              <h3>Web Development</h3>
+              <p>
+                Full-stack projects with <strong>HTML, CSS, JavaScript</strong>,
+                <strong>MERN</strong>, Django & Flask, and
+                <strong>MySQL & MongoDB</strong> backends.
+              </p>
+              <div class="card-actions">
+                <a
+                  href="https://github.com/sameer0208?tab=repositories"
+                  class="btn btn-sm"
+                  target="_blank"
+                  >GitHub</a
+                >
+                <a
+                  href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/details/certifications/"
+                  class="btn btn-sm btn-outline"
+                  target="_blank"
+                  >Certs</a
+                >
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon"><i class="bx bx-laptop"></i></div>
+              <h3>Programming</h3>
+              <p>
+                Proficient in <strong>Java, Python, C, and C++</strong> with
+                competitive coding on StopStalk and LeetCode-style practice.
+              </p>
+              <div class="card-actions">
+                <a
+                  href="https://www.stopstalk.com/user/profile/sameer0208"
+                  class="btn btn-sm"
+                  target="_blank"
+                  >Coding Profile</a
+                >
+              </div>
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon"><i class="bx bxs-paint"></i></div>
+              <h3>Graphics Design</h3>
+              <p>
+                Creative visuals with <strong>Adobe Illustrator</strong> focused
+                on clarity and brand identity.
+              </p>
+              <a
+                href="https://www.shutterstock.com/g/new_images02"
+                class="btn btn-sm"
+                target="_blank"
+                >View Work</a
+              >
+            </article>
+            <article class="service-card reveal">
+              <div class="service-icon"><i class="bx bx-video"></i></div>
+              <h3>Video Editing & Content</h3>
+              <p>
+                Educational and promotional content with
+                <strong>Filmora</strong> and <strong>Adobe After Effects</strong>.
+              </p>
+              <a
+                href="https://www.youtube.com/@learningwithsameer2863"
+                class="btn btn-sm"
+                target="_blank"
+                >YouTube Channel</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="portfolio section" id="portfolio">
+        <div class="container">
+          <header class="section-header reveal" data-section="05">
+            <p class="eyebrow">Portfolio</p>
+            <h2 class="heading">Featured <span class="accent">Projects</span></h2>
+            <p class="section-subtitle section-subtitle--center">
+              <strong>35+ repositories</strong> on
+              <a
+                href="https://github.com/sameer0208?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-link"
+                >@sameer0208</a
+              >
+              — JavaScript, Python, Java, MERN, Django & more.
+            </p>
+          </header>
+
+          <!-- GitHub repositories -->
+          <div class="github-repo-grid reveal" data-category="github">
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Apr 2026</span>
+              </div>
+              <h3>FitTrack Bodybuilder Pro</h3>
+              <p>Fitness tracking application for bodybuilding workflows.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/fittrack-bodybuilder-pro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Mar 2026</span>
+              </div>
+              <h3>RentAstra Rent Manager</h3>
+              <p>Property and rent management platform — RentAstra.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/rentastra-rent-manager"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Jun 2025</span>
+              </div>
+              <h3>AI Trends Analyzer</h3>
+              <p>EverythingAboutAI trends analysis assignment project.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/EverythingAboutAI_TrendsAnalyzer_Assignment_Repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-python" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">Python</span>
+                <span class="repo-date">Jun 2025</span>
+              </div>
+              <h3>Uplyft Chatbot</h3>
+              <p>Chatbot assignment repository for Uplyft.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Uplyft_Chatbot_Assignment_Repo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-java" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">Java</span>
+                <span class="repo-date">Apr 2025</span>
+              </div>
+              <h3>EffiGO Courses Learning</h3>
+              <p>Learning platform built during EffiGO internship.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Effigo-Courses-Learning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-r" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">R</span>
+                <span class="repo-date">Jan 2025</span>
+              </div>
+              <h3>COVID-19 Tweet Analysis</h3>
+              <p>Tweet data analysis and visualization using R.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Covid-19-Tweet-Analysis-Visualization-Using-R"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-default" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">Full Stack</span>
+                <span class="repo-date">Dec 2024</span>
+              </div>
+              <h3>Smart Attendance System</h3>
+              <p>Automated attendance management system.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Smart_Attendance_System"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-default" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">ServiceNow</span>
+                <span class="repo-date">Sep 2024</span>
+              </div>
+              <h3>Digital Nurture — ServiceNow</h3>
+              <p>Deep skilling ServiceNow project for Digital Nurture.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Digital_Nurture_Deep_Skilling_ServiceNow_Sameer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Sep 2024</span>
+              </div>
+              <h3>Live Weather Details App</h3>
+              <p>Real-time weather information web application.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Task-4-Live-Weather-Details-App"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Sep 2024</span>
+              </div>
+              <h3>Tic-Tac-Toe (Friends or AI)</h3>
+              <p>Interactive game with multiplayer and AI modes.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Task-3-Tic-Tac-Toe-With-Friends-or-AI"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Sep 2024</span>
+              </div>
+              <h3>Stopwatch & Countdown Timer</h3>
+              <p>Timer application with stopwatch and countdown features.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Task-2-Stopwatch-and-Countdown-Timer-Application"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-python" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">Python · Django</span>
+                <span class="repo-date">Mar 2024</span>
+              </div>
+              <h3>SuperMarket Management System</h3>
+              <p>Full admin supermarket management website using Django.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/SuperMarket-Management-System-Django"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">JavaScript</span>
+                <span class="repo-date">Jul 2023</span>
+              </div>
+              <h3>CodeClause — My Chat App</h3>
+              <p>Real-time chat application from CodeClause internship.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/CodeClause_MyChatApp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-css" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">CSS</span>
+                <span class="repo-date">Jul 2023</span>
+              </div>
+              <h3>CodeClause — Pet Adoption</h3>
+              <p>Pet adoption platform UI from CodeClause internship.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/CodeClause_PetAdoption"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-css" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">CSS</span>
+                <span class="repo-date">Jul 2023</span>
+              </div>
+              <h3>CodeClause — Music Player</h3>
+              <p>Web-based music player interface project.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/CodeClause_MusicPlayer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">MERN</span>
+                <span class="repo-date">Apr 2023</span>
+              </div>
+              <h3>Sameer All-In-One App</h3>
+              <p>MERN stack app with calculator, BMI tool, and more.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Sameer-All-In-One-App"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-javascript" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">React</span>
+                <span class="repo-date">Feb 2023</span>
+              </div>
+              <h3>Sameer Text Editor</h3>
+              <p>React text editor — one-click actions, clean UI/UX.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/SameerTextEditor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-python" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">Python · Django</span>
+                <span class="repo-date">Jan 2023</span>
+              </div>
+              <h3>Blog Creator (Django)</h3>
+              <p>Create, edit, and publish blogs with Django framework.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Blog-Creator-Web-Application-Using-Django"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-html" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">HTML</span>
+                <span class="repo-date">Jun 2023</span>
+              </div>
+              <h3>KLH All-In-One App</h3>
+              <p>Student hub to access multiple KLH University sites in one app.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/KLH-All-In-One-App"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+              </div>
+            </article>
+
+            <article class="repo-card lang-html" data-category="github">
+              <div class="repo-card-top">
+                <span class="repo-lang">HTML</span>
+                <span class="repo-date">Sep 2024</span>
+              </div>
+              <h3>Sameer Personal Portfolio</h3>
+              <p>This portfolio — HTML, CSS & JavaScript.</p>
+              <div class="repo-links">
+                <a
+                  href="https://github.com/sameer0208/Sameer-Personal-Portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bxl-github"></i> Code</a
+                >
+                <a
+                  href="https://sameer0208.github.io/Sameer-Personal-Portfolio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><i class="bx bx-link-external"></i> Live</a
+                >
+              </div>
+            </article>
+          </div>
+
+          <a
+            href="https://github.com/sameer0208?tab=repositories"
+            class="btn btn-outline github-view-all reveal"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="bx bxl-github"></i> View all 35 repositories on GitHub
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact — Comm Link Uplink Station -->
+      <section class="contact section comm-link-section" id="contact">
+        <div class="container">
+          <header class="section-header reveal comm-link-header" data-section="06">
+            <p class="eyebrow">Open channel</p>
+            <h2 class="heading">Comm <span class="accent">Link</span></h2>
+            <p class="section-subtitle section-subtitle--center">
+              Transmit a secure uplink packet — freelance, collabs, and opportunities.
+              Node: <strong>Hyderabad, IN</strong> · TZ <strong>IST (UTC+5:30)</strong>
+            </p>
+          </header>
+
+          <div class="comm-uplink-grid reveal">
+            <aside class="comm-hub" aria-label="Transmission hub">
+              <div class="comm-hub-panel">
+                <div class="comm-hub-title">
+                  <span class="comm-hub-led"></span>
+                  UPLINK TOPOLOGY
+                </div>
+                <div class="comm-radar-wrap">
+                  <canvas id="comm-radar" class="comm-radar" aria-hidden="true"></canvas>
+                  <div class="comm-radar-labels" aria-hidden="true">
+                    <span class="comm-node comm-node--you" data-node="you">YOU</span>
+                    <span class="comm-node comm-node--inet" data-node="inet">INET</span>
+                    <span class="comm-node comm-node--hub" data-node="hub">HYB</span>
+                    <span class="comm-node comm-node--dest" data-node="dest">SB</span>
+                  </div>
+                  <span class="comm-radar-ping" id="comm-radar-ping" aria-hidden="true"></span>
+                </div>
+                <div class="comm-route-strip" id="comm-route-strip">
+                  <span class="comm-route-hop active" data-hop="0">SRC</span>
+                  <span class="comm-route-line"></span>
+                  <span class="comm-route-hop" data-hop="1">TLS</span>
+                  <span class="comm-route-line"></span>
+                  <span class="comm-route-hop" data-hop="2">HYB</span>
+                  <span class="comm-route-line"></span>
+                  <span class="comm-route-hop" data-hop="3">ACK</span>
+                </div>
+                <dl class="comm-node-meta">
+                  <div>
+                    <dt>Endpoint</dt>
+                    <dd>sameer@comm.link</dd>
+                  </div>
+                  <div>
+                    <dt>Latency</dt>
+                    <dd id="comm-latency">~24ms</dd>
+                  </div>
+                  <div>
+                    <dt>Status</dt>
+                    <dd class="comm-status-open">CHANNEL OPEN</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="comm-channels">
+                <p class="comm-channels-title">OPEN CHANNELS</p>
+                <ul class="comm-channel-list">
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="comm-channel"
+                      data-protocol="linkedin"
+                    >
+                      <span class="comm-channel-led"></span>
+                      <i class="bx bxl-linkedin"></i>
+                      <span class="comm-channel-info">
+                        <span class="comm-channel-name">LinkedIn</span>
+                        <span class="comm-channel-uri">linkedin://in/sayyed-sameer</span>
+                      </span>
+                      <span class="comm-channel-state">OPEN</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://github.com/sameer0208"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="comm-channel"
+                      data-protocol="github"
+                    >
+                      <span class="comm-channel-led"></span>
+                      <i class="bx bxl-github"></i>
+                      <span class="comm-channel-info">
+                        <span class="comm-channel-name">GitHub</span>
+                        <span class="comm-channel-uri">git://sameer0208</span>
+                      </span>
+                      <span class="comm-channel-state">OPEN</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.youtube.com/@learningwithsameer2863"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="comm-channel"
+                      data-protocol="youtube"
+                    >
+                      <span class="comm-channel-led"></span>
+                      <i class="bx bxl-youtube"></i>
+                      <span class="comm-channel-info">
+                        <span class="comm-channel-name">YouTube</span>
+                        <span class="comm-channel-uri">yt://learningwithsameer</span>
+                      </span>
+                      <span class="comm-channel-state">OPEN</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/sameer_k_0208"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="comm-channel"
+                      data-protocol="instagram"
+                    >
+                      <span class="comm-channel-led"></span>
+                      <i class="bx bxl-instagram-alt"></i>
+                      <span class="comm-channel-info">
+                        <span class="comm-channel-name">Instagram</span>
+                        <span class="comm-channel-uri">ig://sameer_k_0208</span>
+                      </span>
+                      <span class="comm-channel-state">OPEN</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="comm-transmit-log" aria-live="polite" aria-relevant="additions">
+                <div class="comm-log-header">
+                  <span>transmit.log</span>
+                  <span id="comm-log-count">0 events</span>
+                </div>
+                <pre class="comm-log-body" id="comm-log-body"><code>[comm.link] awaiting uplink packet…</code></pre>
+              </div>
+            </aside>
+
+            <form
+              name="submit-to-google-sheet"
+              class="contact-form comm-composer reveal"
+              id="comm-composer"
+            >
+              <div class="comm-composer-hud">
+                <div class="comm-composer-title">
+                  <i class="bx bx-chip"></i>
+                  PACKET COMPOSER
+                </div>
+                <div class="comm-readiness">
+                  <span class="comm-readiness-label">UPLINK</span>
+                  <div class="comm-readiness-bar">
+                    <span class="comm-readiness-fill" id="comm-readiness-fill"></span>
+                  </div>
+                  <span class="comm-readiness-pct" id="comm-readiness-pct">0%</span>
+                </div>
+              </div>
+
+              <div id="tls-strip" class="tls-strip comm-tls" role="status" aria-live="polite">
+                <i class="bx bx-lock-alt" aria-hidden="true"></i>
+                <span id="tls-status">comm.link · awaiting secure handshake</span>
+              </div>
+
+              <div class="comm-packet-map" aria-hidden="true">
+                <span class="comm-packet-seg" data-field="name" title="Name"></span>
+                <span class="comm-packet-seg" data-field="email" title="Email"></span>
+                <span class="comm-packet-seg" data-field="mobile" title="Mobile"></span>
+                <span class="comm-packet-seg" data-field="subject" title="Subject"></span>
+                <span class="comm-packet-seg comm-packet-seg--wide" data-field="message" title="Message"></span>
+              </div>
+
+              <div class="input-row">
+                <div class="input-group comm-field" data-field="name">
+                  <label for="name"><span class="comm-field-tag">FIELD::name</span> Full Name</label>
+                  <input
+                    type="text"
+                    name="Name"
+                    id="name"
+                    placeholder="packet.origin.name"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="input-group comm-field" data-field="email">
+                  <label for="email"><span class="comm-field-tag">FIELD::email</span> Email</label>
+                  <input
+                    type="email"
+                    name="Email"
+                    id="email"
+                    placeholder="packet.origin@mail"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+              </div>
+              <div class="input-row">
+                <div class="input-group comm-field" data-field="mobile">
+                  <label for="mobile"><span class="comm-field-tag">FIELD::tel</span> Mobile</label>
+                  <input
+                    type="tel"
+                    name="Mobile"
+                    id="mobile"
+                    placeholder="+91 · optional"
+                    autocomplete="tel"
+                  />
+                </div>
+                <div class="input-group comm-field" data-field="subject">
+                  <label for="subject"><span class="comm-field-tag">FIELD::subj</span> Subject</label>
+                  <input
+                    type="text"
+                    name="Subject"
+                    id="subject"
+                    placeholder="uplink.subject"
+                  />
+                </div>
+              </div>
+              <div class="input-group comm-field" data-field="message">
+                <label for="message"><span class="comm-field-tag">FIELD::payload</span> Message</label>
+                <textarea
+                  name="Message"
+                  id="message"
+                  rows="5"
+                  placeholder="/* encrypted payload — your message */"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn comm-transmit-btn" id="comm-transmit-btn" disabled>
+                <span class="comm-transmit-icon" aria-hidden="true"><i class="bx bx-broadcast"></i></span>
+                <span class="comm-transmit-text">INITIATE UPLINK</span>
+                <span class="comm-transmit-glow" aria-hidden="true"></span>
+              </button>
+              <p id="msg" class="comm-msg" role="status" aria-live="polite"></p>
+
+              <div class="comm-success-overlay" id="comm-success-overlay" hidden>
+                <div class="comm-success-card">
+                  <i class="bx bx-check-shield"></i>
+                  <p class="comm-success-title">PACKET DELIVERED</p>
+                  <p class="comm-success-sub">ACK received · sameer@comm.link</p>
+                  <p class="comm-success-trace" id="comm-success-trace"></p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button
+      type="button"
+      class="cmd-fab"
+      id="cmd-fab"
+      aria-label="Open command palette"
+    >
+      <i class="bx bx-terminal"></i>
+    </button>
+
+    <footer class="footer nexus-footer" id="nexus-footer">
+      <div class="nexus-footer-bg" aria-hidden="true">
+        <div class="nexus-footer-hex"></div>
+        <div class="nexus-footer-grid"></div>
+        <div class="nexus-footer-scan"></div>
+        <p class="nexus-footer-watermark">NEXUS</p>
+        <svg class="nexus-footer-circuit" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,40 H200 L280,12 L420,68 L560,40 L720,8 L900,52 L1080,28 L1200,40" />
+          <path class="nexus-footer-circuit--b" d="M0,48 H160 L300,60 L500,24 L760,56 L1000,36 L1200,48" />
+        </svg>
+        <div class="nexus-footer-packets">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="nexus-footer-frame" aria-hidden="true">
+        <span class="nexus-footer-corner nexus-footer-corner--tl"></span>
+        <span class="nexus-footer-corner nexus-footer-corner--tr"></span>
+        <span class="nexus-footer-corner nexus-footer-corner--bl"></span>
+        <span class="nexus-footer-corner nexus-footer-corner--br"></span>
+        <div class="nexus-footer-chase"></div>
+        <div class="nexus-footer-chase nexus-footer-chase--bottom"></div>
+      </div>
+
+      <div class="nexus-footer-chassis">
+        <div class="nexus-footer-bar">
+          <span class="nexus-footer-bar-led"></span>
+          <span class="nexus-footer-bar-title">NEXUS_FOOTER_DOCK</span>
+          <span class="nexus-footer-bar-sep">|</span>
+          <span class="nexus-footer-bar-build">build 2.0.26-stable</span>
+          <span class="nexus-footer-bar-sep">|</span>
+          <span class="nexus-footer-bar-zone" id="footer-tz">IST UTC+5:30</span>
+          <span class="nexus-footer-bar-clock" id="footer-clock">00:00:00</span>
+        </div>
+
+        <div class="nexus-footer-inner">
+          <div class="nexus-footer-main">
+            <section class="nexus-footer-seal" aria-label="Dock seal">
+              <span class="nexus-footer-mark">
+                <span class="nexus-footer-mark-ring"></span>
+                S
+              </span>
+              <p class="nexus-footer-seal-os">NEXUS.OS</p>
+              <p class="nexus-footer-seal-gate">transmission gate</p>
+              <p class="nexus-footer-seal-route" id="footer-seal-route">route → core.init</p>
+              <p class="nexus-footer-seal-meta" id="footer-seal-session">sess · 7 sectors mounted</p>
+            </section>
+
+            <section class="nexus-footer-matrix" aria-label="Sector matrix">
+              <div class="nexus-footer-panel-head">
+                <i class="bx bx-grid-alt"></i>
+                <span>SECTOR_MATRIX</span>
+                <span class="nexus-footer-panel-tag" id="footer-active-mod">core.init</span>
+              </div>
+              <nav class="nexus-footer-sectors">
+                <a href="#home" class="footer-sector" data-index="01" data-mod="core.init"><span class="footer-sector-id">01</span><span class="footer-sector-name">HOME</span></a>
+                <a href="#about" class="footer-sector" data-index="02" data-mod="profile.sys"><span class="footer-sector-id">02</span><span class="footer-sector-name">ABOUT</span></a>
+                <a href="#experience" class="footer-sector" data-index="03" data-mod="work.log"><span class="footer-sector-id">03</span><span class="footer-sector-name">WORK</span></a>
+                <a href="#certifications" class="footer-sector" data-index="04" data-mod="cred.db"><span class="footer-sector-id">04</span><span class="footer-sector-name">CERTS</span></a>
+                <a href="#services" class="footer-sector" data-index="05" data-mod="svc.mesh"><span class="footer-sector-id">05</span><span class="footer-sector-name">SVC</span></a>
+                <a href="#portfolio" class="footer-sector" data-index="06" data-mod="repo.grid"><span class="footer-sector-id">06</span><span class="footer-sector-name">REPOS</span></a>
+                <a href="#contact" class="footer-sector" data-index="07" data-mod="comm.link"><span class="footer-sector-id">07</span><span class="footer-sector-name">COMM</span></a>
+              </nav>
+            </section>
+
+            <section class="nexus-footer-network">
+              <div class="nexus-footer-panel-head">
+                <i class="bx bx-share-alt"></i>
+                <span>NET_TOPOLOGY</span>
+              </div>
+              <svg class="nexus-footer-topo" viewBox="0 0 200 100" aria-hidden="true">
+                <line x1="20" y1="50" x2="70" y2="30" />
+                <line x1="70" y1="30" x2="130" y2="50" />
+                <line x1="130" y1="50" x2="180" y2="35" />
+                <line x1="70" y1="30" x2="100" y2="75" />
+                <line x1="100" y1="75" x2="130" y2="50" />
+                <circle class="topo-node" cx="20" cy="50" r="5" />
+                <circle class="topo-node topo-node--hub" cx="100" cy="75" r="7" />
+                <circle class="topo-node topo-node--active" cx="130" cy="50" r="6" />
+                <circle class="topo-node" cx="180" cy="35" r="5" />
+              </svg>
+              <div class="nexus-footer-channels">
+                <a href="https://github.com/sameer0208" class="footer-channel" target="_blank" rel="noopener noreferrer" data-uri="git://sameer0208">
+                  <i class="bx bxl-github"></i><span>git</span>
+                </a>
+                <a href="https://www.linkedin.com/in/sayyed-sameer-basir-6b3195215/" class="footer-channel" target="_blank" rel="noopener noreferrer" data-uri="linkedin://in">
+                  <i class="bx bxl-linkedin"></i><span>in</span>
+                </a>
+                <a href="https://www.youtube.com/@learningwithsameer2863" class="footer-channel" target="_blank" rel="noopener noreferrer" data-uri="yt://channel">
+                  <i class="bx bxl-youtube"></i><span>yt</span>
+                </a>
+                <a href="https://www.instagram.com/sameer_k_0208" class="footer-channel" target="_blank" rel="noopener noreferrer" data-uri="ig://direct">
+                  <i class="bx bxl-instagram-alt"></i><span>ig</span>
+                </a>
+              </div>
+            </section>
+
+            <section class="nexus-footer-dash" aria-live="polite">
+              <div class="nexus-footer-panel-head">
+                <i class="bx bx-pulse"></i>
+                <span>SYS_TELEMETRY</span>
+              </div>
+              <div class="nexus-footer-metric">
+                <div class="nexus-footer-metric-head">
+                  <span>LINK</span>
+                  <span class="nexus-stat-ok" id="footer-status">ONLINE</span>
+                </div>
+                <div class="nexus-footer-metric-bar"><span class="nexus-footer-metric-fill" style="width:100%"></span></div>
+              </div>
+              <div class="nexus-footer-metric">
+                <div class="nexus-footer-metric-head">
+                  <span>DEPTH</span>
+                  <span id="footer-depth">0%</span>
+                </div>
+                <div class="nexus-footer-metric-bar"><span class="nexus-footer-metric-fill" id="footer-depth-bar"></span></div>
+              </div>
+              <div class="nexus-footer-metric">
+                <div class="nexus-footer-metric-head">
+                  <span>SECTORS</span>
+                  <span id="footer-sector-count">7/7</span>
+                </div>
+                <div class="nexus-footer-metric-bar"><span class="nexus-footer-metric-fill nexus-footer-metric-fill--purple" style="width:100%"></span></div>
+              </div>
+              <div class="nexus-footer-metric">
+                <div class="nexus-footer-metric-head">
+                  <span>PING</span>
+                  <span id="footer-ping">~22ms</span>
+                </div>
+                <div class="nexus-footer-signal" id="footer-signal" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="nexus-footer-console">
+            <span class="nexus-footer-console-prompt">footer@nexus</span>
+            <span class="nexus-footer-console-colon">:</span>
+            <span class="nexus-footer-console-path">~/sectors</span>
+            <span class="nexus-footer-console-prompt">$</span>
+            <span class="nexus-footer-console-line" id="footer-console-line">watch -n1 sector.status --all</span>
+            <span class="nexus-footer-console-cursor" aria-hidden="true"></span>
+          </div>
+
+          <div class="nexus-footer-ticker-wrap" aria-hidden="true">
+            <div class="nexus-footer-ticker-track">
+              <div class="nexus-footer-ticker">
+                <span>◈ nexus.os footer dock armed</span>
+                <span>◈ 7 sectors · 35 github repos indexed</span>
+                <span>◈ scroll depth telemetry live</span>
+                <span>◈ comm.link TLS session ready</span>
+                <span>◈ sector matrix · uplink armed</span>
+                <span>◈ packet stream EOF · buffer zeroed</span>
+              </div>
+              <div class="nexus-footer-ticker" aria-hidden="true">
+                <span>◈ nexus.os footer dock armed</span>
+                <span>◈ 7 sectors · 35 github repos indexed</span>
+                <span>◈ scroll depth telemetry live</span>
+                <span>◈ comm.link TLS session ready</span>
+                <span>◈ sector matrix · uplink armed</span>
+                <span>◈ packet stream EOF · buffer zeroed</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="nexus-footer-bottom">
+            <p class="nexus-footer-copy">
+              &copy; <span id="year"></span>
+              <span class="nexus-footer-copy-meta">nexus.portfolio · all rights reserved</span>
+            </p>
+            <button type="button" class="nexus-footer-eof" id="footer-eof-btn">
+              <i class="bx bx-up-arrow-alt"></i>
+              <span>exec uplink --target core.init</span>
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
-    <!-- Scroll Reveal -->
+
+    <button
+      type="button"
+      class="uplink-launcher"
+      id="uplink-launcher"
+      aria-label="Uplink to top — core.init"
+      title="Uplink to core.init"
+    >
+      <svg class="uplink-ring" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="uplink-ring-bg" cx="50" cy="50" r="44" />
+        <circle class="uplink-ring-progress" id="uplink-ring-progress" cx="50" cy="50" r="44" />
+      </svg>
+      <span class="uplink-beam" aria-hidden="true"></span>
+      <span class="uplink-core">
+        <i class="bx bx-rocket"></i>
+        <span class="uplink-text">UPLINK</span>
+        <span class="uplink-target">core.init</span>
+      </span>
+      <span class="uplink-hint" aria-hidden="true">execute uplink --target core.init</span>
+    </button>
+
     <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- Typed JS -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="js/digital.js"></script>
+    <script src="js/section-realm.js"></script>
+    <script src="js/tech-pulse.js"></script>
+    <script src="js/tech-ops.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/nexus-nav.js"></script>
+    <script src="js/nexus-cinematic.js"></script>
+    <script src="js/nexus-cursor.js"></script>
+    <script src="js/nexus-3d.js"></script>
+    <script src="js/nexus-rooms.js"></script>
+    <script src="js/nexus-sys.js"></script>
+    <script src="js/about-telemetry.js"></script>
+    <script src="js/nexus-console-game.js"></script>
+    <script src="js/comm-link.js"></script>
+    <script src="js/nexus-footer.js"></script>
+    <script src="js/nexus-buttons.js"></script>
     <script src="js/script.js"></script>
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyY-Sqpml5xU63m5pGsg-sUJPu75KYnoT4Ywtmd1gPg7LZiviswCKtVfjzq-Gtgm4a-/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg = document.getElementById("msg");
-      
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-              msg.innerHTML = "Message sent successfully" 
-              setTimeout(function(){
-                msg.innerHTML=""
-              },5000)
-              form.reset()
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-      </script>
   </body>
 </html>

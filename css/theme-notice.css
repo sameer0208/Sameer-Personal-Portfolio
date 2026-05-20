@@ -1,0 +1,13 @@
+/* Command palette footer — theme line */
+.cmd-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: flex-start;
+}
+
+.cmd-footer-theme {
+  font-size: 0.82rem;
+  color: rgba(52, 211, 153, 0.55);
+  letter-spacing: 0.04em;
+}

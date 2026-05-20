@@ -1,0 +1,372 @@
+/* ============================================
+   NEXUS X — extraordinary experience layer
+   ============================================ */
+
+body.nexus-x {
+  cursor: none;
+}
+
+body.nexus-x a,
+body.nexus-x button,
+body.nexus-x input,
+body.nexus-x textarea,
+body.nexus-x .cmd-item,
+body.nexus-x .journey-node {
+  cursor: none;
+}
+
+/* Quantum cursor */
+.quantum-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(56, 189, 248, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100001;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s, background 0.2s;
+  mix-blend-mode: screen;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+.quantum-cursor.is-hover {
+  width: 48px;
+  height: 48px;
+  background: rgba(124, 92, 255, 0.15);
+  border-color: rgba(124, 92, 255, 0.9);
+}
+
+.quantum-cursor-dot {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: #38bdf8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  box-shadow: 0 0 6px #38bdf8;
+}
+
+#cursor-trail-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+/* Dimension warp overlay */
+.dimension-warp {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(124, 92, 255, 0.25),
+    transparent 55%
+  );
+  backdrop-filter: blur(0px);
+  transition: opacity 0.15s;
+}
+
+.dimension-warp.active {
+  animation: dimension-warp 0.85s var(--ease) forwards;
+}
+
+@keyframes dimension-warp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: hue-rotate(0deg);
+  }
+  35% {
+    opacity: 1;
+    backdrop-filter: blur(6px);
+    filter: hue-rotate(90deg) contrast(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+    backdrop-filter: blur(0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* 3D Galaxy canvas — hero */
+.galaxy-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#galaxy-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.35;
+}
+
+.home .container,
+.home-grid,
+.hero-console {
+  position: relative;
+  z-index: 2;
+}
+
+/* Active section — subtle highlight only (no blur / scale) */
+.section.dimension-active .section-panel {
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.15),
+    0 0 40px rgba(124, 92, 255, 0.06),
+    0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Holographic repo / cert cards */
+.holo-projection {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.holo-projection .holo-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(56, 189, 248, 0.12) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s var(--ease);
+  pointer-events: none;
+  z-index: 5;
+  border-radius: inherit;
+}
+
+.holo-projection:hover .holo-shine {
+  transform: translateX(100%);
+}
+
+.holo-projection:hover {
+  transform: translateY(-10px) rotateX(4deg) rotateY(-6deg) scale(1.02);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(124, 92, 255, 0.2),
+    inset 0 0 30px rgba(56, 189, 248, 0.05);
+}
+
+.holo-back-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 2rem;
+  background: rgba(4, 8, 18, 0.95);
+  border-radius: inherit;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: var(--accent-2);
+  opacity: 0;
+  transform: rotateY(90deg);
+  transition: opacity 0.4s, transform 0.5s var(--ease);
+  pointer-events: none;
+  z-index: 4;
+  text-align: center;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.holo-projection:hover .holo-back-face {
+  opacity: 0.35;
+  transform: rotateY(0deg) scale(1);
+}
+
+.holo-back-face code {
+  color: var(--term-green, #34d399);
+  font-size: 1rem;
+}
+
+/* Constellation map — bottom nav */
+.constellation-map {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 92;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+  padding: 0.8rem 1.4rem;
+  background: rgba(7, 7, 13, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+.constellation-star {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: none;
+}
+
+.constellation-star::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--text-dim);
+  border-radius: 50%;
+  transition: var(--transition);
+  box-shadow: 0 0 0 transparent;
+}
+
+.constellation-star:hover::before,
+.constellation-star.active::before {
+  background: #38bdf8;
+  box-shadow: 0 0 14px #38bdf8, 0 0 28px rgba(56, 189, 248, 0.4);
+  transform: scale(1.4);
+}
+
+.constellation-star-label {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.constellation-star:hover .constellation-star-label,
+.constellation-star.active .constellation-star-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px);
+  color: var(--accent-2);
+}
+
+.constellation-connector {
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.4), transparent);
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+/* Hero title glitch burst on load */
+.hero-title.nexus-reveal {
+  animation: title-materialize 1.2s var(--ease) forwards;
+}
+
+@keyframes title-materialize {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  62% {
+    text-shadow: 2px 0 #7c5cff, -2px 0 #38bdf8;
+  }
+  64% {
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Nexus badge pulse ring */
+.hero-badge.nexus-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1px solid rgba(52, 211, 153, 0.5);
+  animation: nexus-ring 2s ease-out infinite;
+}
+
+.hero-badge {
+  position: relative;
+}
+
+@keyframes nexus-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Experience timeline — data beam */
+.exp-timeline-item.dimension-active .exp-timeline-marker {
+  animation: marker-burst 0.6s ease-out;
+}
+
+@keyframes marker-burst {
+  0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.8); }
+  100% { box-shadow: 0 0 0 20px rgba(56, 189, 248, 0); }
+}
+
+@media (max-width: 1024px) {
+  .constellation-map {
+    display: none;
+  }
+
+  #galaxy-canvas {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  body.nexus-x {
+    cursor: auto;
+  }
+
+  body.nexus-x a,
+  body.nexus-x button {
+    cursor: pointer;
+  }
+
+  .quantum-cursor,
+  .quantum-cursor-dot,
+  #cursor-trail-canvas {
+    display: none !important;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.nexus-x {
+    cursor: auto;
+  }
+
+  .quantum-cursor,
+  .quantum-cursor-dot,
+  #cursor-trail-canvas,
+  .dimension-warp,
+  .galaxy-field {
+    display: none !important;
+  }
+
+  .holo-projection:hover {
+    transform: translateY(-6px);
+  }
+}
