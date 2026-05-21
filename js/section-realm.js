@@ -12,6 +12,7 @@
   };
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const lite = window.matchMedia("(max-width: 899px), (pointer: coarse)").matches;
 
   function buildNodes(count) {
     let html = "";
@@ -49,8 +50,8 @@
       <div class="panel-bg-grid-floor"></div>
       <div class="panel-bg-circuit"></div>
       <div class="panel-bg-scanline"></div>
-      <div class="panel-bg-nodes">${buildNodes(realm === "experience" ? 10 : 7)}</div>
-      <div class="panel-bg-flow">${buildFlowLines(realm === "experience" ? 5 : 3)}</div>
+      <div class="panel-bg-nodes">${buildNodes(lite ? 4 : realm === "experience" ? 10 : 7)}</div>
+      <div class="panel-bg-flow">${buildFlowLines(lite ? 2 : realm === "experience" ? 5 : 3)}</div>
       <div class="panel-bg-aurora"></div>
       <span class="panel-bg-tag">${REALM_TAGS[realm] || realm}</span>
     `;
@@ -58,7 +59,7 @@
   }
 
   function initPanelGlow() {
-    if (reduced) return;
+    if (reduced || lite) return;
     document.querySelectorAll(".section-panel").forEach((panel) => {
       panel.addEventListener("mousemove", (e) => {
         const rect = panel.getBoundingClientRect();

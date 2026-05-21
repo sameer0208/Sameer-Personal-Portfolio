@@ -1,0 +1,325 @@
+/* ============================================
+   Mobile layout + scroll performance
+   ============================================ */
+
+/* Native scroll feels smoother than smooth + snap + heavy paint */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html.nexus-rooms-enabled {
+  scroll-behavior: auto;
+}
+
+html {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+body {
+  touch-action: pan-y;
+}
+
+/* Pause expensive paint while finger/wheel is moving */
+body.is-scrolling .orb,
+body.is-scrolling .portal-ring,
+body.is-scrolling .orbit-ring,
+body.is-scrolling .tech-marquee-track,
+body.is-scrolling .tech-pulse-track,
+body.is-scrolling .nexus-footer-scan,
+body.is-scrolling .section-realm-orb {
+  animation-play-state: paused !important;
+}
+
+body.is-scrolling #network-canvas,
+body.is-scrolling #matrix-canvas {
+  opacity: 0.12;
+}
+
+body.is-scrolling .nexus-header,
+body.is-scrolling .nexus-navbar.active,
+body.is-scrolling .section-panel,
+body.is-scrolling .room-toast,
+body.is-scrolling .cmd-palette-inner {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Off-screen sections skip layout until near viewport */
+main > section.section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+/* Tablet — shorter fixed header */
+@media (max-width: 1099px) {
+  body.nexus-x {
+    --header-h: 72px;
+  }
+}
+
+/* ---- Lite / mobile theme ---- */
+@media (max-width: 899px) {
+  .reveal,
+  .nexus-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html.nexus-lite body.nexus-x,
+  body.nexus-x {
+    --header-h: 64px;
+  }
+
+  #network-canvas,
+  #matrix-canvas,
+  #cursor-trail-canvas {
+    display: none !important;
+  }
+
+  .tech-ops--ambient,
+  .orbit-system,
+  .universe-portal,
+  .galaxy-field {
+    display: none !important;
+  }
+
+  .home {
+    min-height: auto;
+    padding-top: calc(var(--header-h) + 1.5rem);
+    padding-bottom: 3rem;
+  }
+
+  .home-grid {
+    gap: 2rem;
+  }
+
+  .home-img {
+    min-height: 0;
+    gap: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 9vw, 4.2rem);
+    letter-spacing: -0.03em;
+  }
+
+  .hero-role {
+    font-size: 1.7rem;
+  }
+
+  .hero-lead {
+    font-size: 1.45rem;
+    line-height: 1.55;
+  }
+
+  .hero-stats {
+    gap: 0.75rem;
+  }
+
+  .hero-stats .stat {
+    padding: 1rem 1.2rem;
+  }
+
+  .profile-frame {
+    width: min(78vw, 280px);
+  }
+
+  .profile-card {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0.75rem auto 0;
+    max-width: 100%;
+    width: min(100%, 320px);
+  }
+
+  .hero-console {
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-console-bar {
+    flex-wrap: nowrap;
+    min-width: min-content;
+  }
+
+  .hero-console-tab:not(.active) {
+    display: inline-flex;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .section {
+    padding-top: calc(var(--header-h) + 2rem);
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    padding-left: clamp(1rem, 4vw, 1.25rem);
+    padding-right: clamp(1rem, 4vw, 1.25rem);
+  }
+
+  .section-header h2,
+  .section-header .section-title {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+  }
+
+  .about-grid {
+    gap: 2rem;
+  }
+
+  .profile-dock {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .highlight-chip {
+    font-size: 1.25rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .tab-titles {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .tab-links {
+    min-height: 5.6rem;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .tab-links-label {
+    font-size: 1.5rem;
+  }
+
+  .tab-links-desc {
+    font-size: 1.2rem;
+  }
+
+  .tab-links-icon {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2.2rem;
+  }
+
+  .tech-pulse {
+    margin-top: 2rem;
+  }
+
+  .tech-pulse-track {
+    display: none;
+  }
+
+  .tech-pulse-static {
+    display: flex;
+  }
+
+  .tech-pulse-feed::before {
+    display: none;
+  }
+
+  .nexus-header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .nexus-footer-chassis {
+    margin-inline: 0.5rem;
+  }
+
+  .nexus-footer-watermark {
+    font-size: clamp(2.5rem, 14vw, 5rem);
+    letter-spacing: 0.12em;
+  }
+
+  .nexus-footer-sectors {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .cmd-fab {
+    bottom: 1.15rem;
+    right: 1rem;
+    width: 4.6rem;
+    height: 4.6rem;
+    font-size: 2rem;
+    z-index: 94;
+  }
+
+  .uplink-launcher {
+    bottom: 5.75rem;
+    right: 1rem;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .holo-projection:hover {
+    transform: translateY(-4px);
+  }
+
+  .holo-projection:hover .holo-back-face {
+    opacity: 0;
+  }
+
+  .section-realm-glow {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-actions .btn,
+  .nexus-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exp-timeline {
+    padding-left: 1.5rem;
+  }
+
+  .exp-timeline-marker {
+    left: -1.5rem;
+  }
+
+  .comm-composer,
+  .comm-hub {
+    border-radius: 12px;
+  }
+
+  .nexus-footer-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .nexus-footer-bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 58%;
+  }
+
+  .nexus-navbar a.nav-slot {
+    padding: 0.85rem 1rem;
+    font-size: 1.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section.section {
+    content-visibility: visible;
+  }
+}

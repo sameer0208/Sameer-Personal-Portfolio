@@ -3,7 +3,7 @@
  */
 (function () {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  if (window.innerWidth < 768) return;
+  if (window.innerWidth < 900) return;
 
   const canvas = document.getElementById("galaxy-canvas");
   if (!canvas || typeof THREE === "undefined") return;

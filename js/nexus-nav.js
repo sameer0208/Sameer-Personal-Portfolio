@@ -36,9 +36,17 @@
     const sync = () => moveTo(nav.querySelector("a.active"));
     sync();
     window.addEventListener("resize", sync);
+    let laserTicking = false;
     window.addEventListener(
       "scroll",
-      () => requestAnimationFrame(sync),
+      () => {
+        if (laserTicking) return;
+        laserTicking = true;
+        requestAnimationFrame(() => {
+          sync();
+          laserTicking = false;
+        });
+      },
       { passive: true }
     );
 

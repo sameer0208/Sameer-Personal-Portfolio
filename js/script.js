@@ -24,36 +24,56 @@ const navLinks = document.querySelectorAll(".nexus-navbar a.nav-slot, .navbar a"
 const header = document.querySelector(".header");
 const scrollProgress = document.querySelector(".scroll-progress");
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  const docHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
+let scrollTicking = false;
 
-  if (scrollProgress && docHeight > 0) {
-    scrollProgress.style.width = `${(scrollY / docHeight) * 100}%`;
-  }
+window.addEventListener(
+  "scroll",
+  () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const headerOffset =
+        parseInt(
+          getComputedStyle(document.body).getPropertyValue("--header-h"),
+          10
+        ) || 108;
 
-  header?.classList.toggle("sticky", scrollY > 40);
+      if (scrollProgress && docHeight > 0) {
+        scrollProgress.style.width = `${(scrollY / docHeight) * 100}%`;
+      }
 
-  sections.forEach((sec) => {
-    const top = scrollY;
-    const offset = sec.offsetTop - 130;
-    const height = sec.offsetHeight;
-    const id = sec.getAttribute("id");
+      header?.classList.toggle("sticky", scrollY > 40);
 
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+      sections.forEach((sec) => {
+        const top = scrollY;
+        const offset = sec.offsetTop - headerOffset - 24;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute("id");
+
+        if (top >= offset && top < offset + height) {
+          navLinks.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === `#${id}`
+            );
+          });
+        }
       });
-    }
-  });
 
-  if (!document.querySelector(".nexus-navbar")) {
-    navbar?.classList.remove("active");
-    menuToggle?.classList.remove("open");
-    menuToggle?.setAttribute("aria-expanded", "false");
-  }
-});
+      if (!document.querySelector(".nexus-navbar")) {
+        navbar?.classList.remove("active");
+        menuToggle?.classList.remove("open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      }
+
+      scrollTicking = false;
+    });
+  },
+  { passive: true }
+);
 
 // About tabs
 const tabLinks = document.querySelectorAll(".tab-links");
@@ -90,8 +110,13 @@ const revealObserver = new IntersectionObserver(
 );
 revealEls.forEach((el) => revealObserver.observe(el));
 
-// ScrollReveal
-if (typeof ScrollReveal !== "undefined") {
+// ScrollReveal — skip on mobile / coarse pointer (smoother native scroll)
+const useScrollReveal =
+  typeof ScrollReveal !== "undefined" &&
+  window.innerWidth >= 900 &&
+  !window.matchMedia("(pointer: coarse)").matches;
+
+if (useScrollReveal) {
   const sr = ScrollReveal({
     reset: false,
     distance: "32px",
@@ -120,20 +145,6 @@ if (typeof ScrollReveal !== "undefined") {
   sr.reveal(".comm-composer", { origin: "right", delay: 160 });
 }
 
-// Typed.js
-if (typeof Typed !== "undefined") {
-  new Typed(".multiple-text", {
-    strings: [
-      "Associate Developer",
-      "Full Stack Developer",
-      "Freelancer",
-      "Content Creator",
-    ],
-    typeSpeed: 55,
-    backSpeed: 40,
-    backDelay: 2000,
-    loop: true,
-  });
-}
+// Typed.js — started after loader via js/hero-boot.js
 
 document.getElementById("year").textContent = new Date().getFullYear();

@@ -39,6 +39,7 @@
 };`;
 
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const liteMode = window.matchMedia("(max-width: 899px), (pointer: coarse)").matches;
 
   let mouseX = null;
   let mouseY = null;
@@ -46,10 +47,11 @@
   /* ---- Particle network (mouse-reactive) ---- */
   function initNetwork() {
     const canvas = document.getElementById("network-canvas");
-    if (!canvas || reduced) return;
+    if (!canvas || reduced || liteMode) return;
 
     const ctx = canvas.getContext("2d");
     let w, h, nodes, raf;
+    let paused = false;
 
     const COUNT = 32;
     const DIST = 120;
@@ -76,6 +78,7 @@
     }
 
     function draw() {
+      if (paused) return;
       ctx.clearRect(0, 0, w, h);
       nodes.forEach((n) => {
         n.x += n.vx;
@@ -146,19 +149,33 @@
     resize();
     draw();
     window.addEventListener("resize", resize);
+    document.addEventListener("nexus-scroll-busy", () => {
+      paused = true;
+      cancelAnimationFrame(raf);
+    });
+    document.addEventListener("nexus-scroll-idle", () => {
+      if (!paused) return;
+      paused = false;
+      draw();
+    });
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) cancelAnimationFrame(raf);
-      else draw();
+      if (document.hidden) {
+        paused = true;
+        cancelAnimationFrame(raf);
+      } else if (!paused) {
+        draw();
+      }
     });
   }
 
   /* ---- Matrix rain (subtle) ---- */
   function initMatrixRain() {
     const canvas = document.getElementById("matrix-canvas");
-    if (!canvas || reduced) return;
+    if (!canvas || reduced || liteMode) return;
 
     const ctx = canvas.getContext("2d");
     let w, h, cols, drops, raf;
+    let paused = false;
     const chars = "01アイウエオαβγλ<>/{}";
 
     function resize() {
@@ -170,6 +187,7 @@
     }
 
     function draw() {
+      if (paused) return;
       ctx.fillStyle = "rgba(7, 7, 13, 0.12)";
       ctx.fillRect(0, 0, w, h);
       ctx.fillStyle = "rgba(124, 92, 255, 0.15)";
@@ -189,11 +207,28 @@
     resize();
     draw();
     window.addEventListener("resize", resize);
+    document.addEventListener("nexus-scroll-busy", () => {
+      paused = true;
+      cancelAnimationFrame(raf);
+    });
+    document.addEventListener("nexus-scroll-idle", () => {
+      if (!paused) return;
+      paused = false;
+      draw();
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        paused = true;
+        cancelAnimationFrame(raf);
+      } else if (!paused) {
+        draw();
+      }
+    });
   }
 
   /* ---- Cursor spotlight ---- */
   function initSpotlight() {
-    if (reduced) return;
+    if (reduced || liteMode) return;
     document.addEventListener(
       "mousemove",
       (e) => {
@@ -408,7 +443,12 @@
       }
     }
 
-    setTimeout(tick, 600);
+    const start = () => setTimeout(tick, 400);
+    if (document.body.classList.contains("loader-active")) {
+      document.addEventListener("hero:code-start", start, { once: true });
+    } else {
+      start();
+    }
   }
 
   function highlightCode(code) {
@@ -559,42 +599,18 @@
     });
   }
 
-  /* ---- Console output stream ---- */
+  /* ---- Console ping (boot lines handled by hero-boot.js) ---- */
   function initConsoleOutput() {
-    const outEl = document.querySelector("#hero-console-output .output-text");
     const pingEl = document.getElementById("console-ping");
-    if (!outEl) return;
+    if (!pingEl) return;
 
-    const lines = [
-      "Initializing Sameer Basir profile...",
-      "Loading Thoughtworks workspace...",
-      "Syncing full-stack modules [React, Node, Python]...",
-      "Credentials verified · 10+ certs online",
-      "Nexus ready — scroll to traverse the universe →",
-    ];
-
-    let idx = 0;
     function cyclePing() {
-      if (pingEl) {
-        const ms = Math.floor(8 + Math.random() * 24);
-        pingEl.textContent = `ping ${ms}ms`;
-      }
-    }
-
-    function runLines() {
-      idx = 0;
-      function nextLine() {
-        if (idx >= lines.length) return;
-        outEl.textContent = lines[idx];
-        idx += 1;
-        setTimeout(nextLine, idx === 1 ? 1000 : 1600);
-      }
-      nextLine();
+      const ms = Math.floor(8 + Math.random() * 24);
+      pingEl.textContent = `ping ${ms}ms`;
     }
 
     cyclePing();
     setInterval(cyclePing, 2000);
-    setTimeout(runLines, 500);
   }
 
   function init() {

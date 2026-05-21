@@ -585,7 +585,7 @@ body:has(.nexus-header) .constellation-map {
 /* Mobile */
 @media (max-width: 768px) {
   body.nexus-x {
-    --header-h: 68px;
+    --header-h: 64px;
   }
 
   .nexus-header {

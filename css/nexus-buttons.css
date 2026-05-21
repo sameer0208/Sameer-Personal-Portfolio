@@ -139,35 +139,84 @@ body.nexus-x .btn-outline:hover {
   transform: translateY(-2px);
 }
 
-/* Small — module chip */
+/* Small — module chip (default = visible outline button) */
 body.nexus-x .btn-sm {
-  padding: 0.55rem 1rem 0.55rem 1.1rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  padding: 0.9rem 1.5rem 0.9rem 1.25rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  min-height: 3.8rem;
+  color: #e8ecf4;
+  background: rgba(6, 10, 22, 0.92);
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  box-shadow:
+    inset 0 0 20px rgba(56, 189, 248, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.35);
   clip-path: polygon(
-    6px 0,
+    8px 0,
     100% 0,
-    100% calc(100% - 6px),
-    calc(100% - 6px) 100%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
     0 100%,
-    0 6px
+    0 8px
   );
 }
 
-body.nexus-x .btn-sm .btn-nexus-tag {
-  display: none;
+body.nexus-x .btn-sm::before {
+  width: 3px;
+  background: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-body.nexus-x .btn-sm::before {
-  width: 2px;
+body.nexus-x .btn-sm:hover {
+  color: #38bdf8;
+  border-color: #34d399;
+  background: rgba(56, 189, 248, 0.12);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 24px rgba(52, 211, 153, 0.08),
+    0 0 22px rgba(56, 189, 248, 0.2),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.nexus-x .btn-sm:hover::before {
+  background: #34d399;
+  box-shadow: 0 0 14px rgba(52, 211, 153, 0.55);
+}
+
+body.nexus-x .btn-sm .btn-nexus-tag {
+  font-size: 0.58rem;
+  top: 4px;
+  right: 6px;
+  color: #38bdf8;
+  opacity: 0.85;
 }
 
 body.nexus-x .btn-sm i {
-  font-size: 1rem;
+  font-size: 1.35rem;
+  flex-shrink: 0;
 }
 
 body.nexus-x .btn-sm.btn-outline {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(6, 10, 22, 0.92);
+}
+
+/* Experience timeline actions */
+body.nexus-x .exp-timeline-body .card-actions {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+body.nexus-x .exp-timeline-body .card-actions .btn {
+  gap: 0.55rem;
+}
+
+body.nexus-x .exp-linkedin-cta {
+  margin-top: 2.5rem;
+  padding: 1.2rem 2rem !important;
+  font-size: 1.25rem !important;
+  min-height: 4.2rem;
+  border-width: 2px !important;
 }
 
 /* Repo card links */
@@ -285,36 +334,107 @@ body.nexus-x .cmd-fab:hover {
   transform: scale(1.06) translateY(-2px);
 }
 
-/* About tabs as command switches */
+/* About tabs — command deck switches (large, tappable) */
+body.nexus-x .tab-titles {
+  padding: 0.75rem;
+  background: rgba(4, 6, 14, 0.85);
+  border: 2px solid rgba(56, 189, 248, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 0 32px rgba(124, 92, 255, 0.08);
+}
+
 body.nexus-x .tab-links {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  border: 1px solid rgba(124, 92, 255, 0.3);
-  background: rgba(4, 6, 12, 0.6);
+  font-family: var(--font-body);
+  min-height: 5.6rem;
+  border-radius: 6px;
+  border: 2px solid rgba(124, 92, 255, 0.35);
+  background: rgba(4, 6, 12, 0.75);
   clip-path: polygon(
-    6px 0,
+    8px 0,
     100% 0,
-    100% calc(100% - 6px),
-    calc(100% - 6px) 100%,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
     0 100%,
-    0 6px
+    0 8px
   );
 }
 
 body.nexus-x .tab-links:hover {
-  border-color: rgba(56, 189, 248, 0.5);
-  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.65);
+  background: rgba(8, 12, 24, 0.9);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.12);
 }
 
 body.nexus-x .tab-links.active-link {
-  color: #34d399;
-  background: rgba(52, 211, 153, 0.1);
+  color: #e2e8f0;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 211, 153, 0.14),
+    rgba(124, 92, 255, 0.18)
+  );
+  border-color: rgba(52, 211, 153, 0.7);
+  box-shadow:
+    0 0 24px rgba(52, 211, 153, 0.18),
+    inset 0 0 0 1px rgba(52, 211, 153, 0.25);
+}
+
+body.nexus-x .tab-links-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+body.nexus-x .tab-links-desc {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+
+body.nexus-x .tab-links-icon {
+  clip-path: polygon(
+    4px 0,
+    100% 0,
+    100% calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    0 100%,
+    0 4px
+  );
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+}
+
+body.nexus-x .tab-links.active-link .tab-links-icon {
+  background: rgba(52, 211, 153, 0.15);
   border-color: rgba(52, 211, 153, 0.55);
-  box-shadow: 0 0 20px rgba(52, 211, 153, 0.12);
+  color: #34d399;
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.2);
+}
+
+body.nexus-x .tab-links.active-link .tab-links-desc {
+  color: #34d399;
+}
+
+@media (max-width: 768px) {
+  body.nexus-x .tab-titles {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  body.nexus-x .tab-links {
+    min-height: 5.8rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  body.nexus-x .tab-links-label {
+    font-size: 1.5rem;
+  }
+
+  body.nexus-x .tab-links-desc {
+    font-size: 1.2rem;
+  }
 }
 
 body.nexus-x .btn:not(.btn-sm):not(.comm-transmit-btn) {

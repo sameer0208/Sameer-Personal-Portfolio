@@ -2,8 +2,10 @@
  * Comm Link Uplink Station — radar, packet composer, secure transmit
  */
 (function () {
-  const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbyY-Sqpml5xU63m5pGsg-sUJPu75KYnoT4Ywtmd1gPg7LZiviswCKtVfjzq-Gtgm4a-/exec";
+  const DEFAULT_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbylpaNBLeQi3i1q9uZLLQKflrzlS20dx7jGgwc4UCq9-FXJzAduhrawudsLNUF9PqdT/exec";
+
+  const SHEET_FIELDS = ["Name", "Email", "Mobile", "Subject", "Message"];
 
   const FIELD_WEIGHTS = {
     name: 25,
@@ -31,6 +33,7 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let logCount = 0;
   let radarRaf = null;
+  let currentUploadPct = 0;
 
   function ts() {
     const d = new Date();
@@ -276,15 +279,251 @@
     return new Promise((r) => setTimeout(r, ms));
   }
 
-  function showSuccess() {
+  function getScriptUrl(form) {
+    const custom = form?.dataset?.sheetUrl?.trim();
+    return custom || DEFAULT_SCRIPT_URL;
+  }
+
+  /** URL-encoded body — matches standard Google Apps Script doPost(e.parameter.*) */
+  function buildSheetPayload(form) {
+    const params = new URLSearchParams();
+    SHEET_FIELDS.forEach((key) => {
+      const el = form.elements.namedItem(key);
+      const value = el && "value" in el ? String(el.value).trim() : "";
+      params.append(key, value);
+    });
+    return params;
+  }
+
+  function ensureSheetFrame() {
+    let iframe = document.getElementById("comm-sheet-frame");
+    if (iframe) return iframe;
+    iframe = document.createElement("iframe");
+    iframe.id = "comm-sheet-frame";
+    iframe.name = "comm-sheet-frame";
+    iframe.title = "Google Sheets relay";
+    iframe.hidden = true;
+    iframe.setAttribute("aria-hidden", "true");
+    document.body.appendChild(iframe);
+    return iframe;
+  }
+
+  /** Hidden iframe avoids browser CORS blocks when the web app is public */
+  function submitViaHiddenFrame(form, url) {
+    return new Promise((resolve, reject) => {
+      const iframe = ensureSheetFrame();
+      const timeout = setTimeout(() => {
+        cleanup();
+        reject(new Error("Sheet relay timed out — check Apps Script deployment"));
+      }, 20000);
+
+      function cleanup() {
+        clearTimeout(timeout);
+        iframe.removeEventListener("load", onLoad);
+        form.removeAttribute("target");
+        form.removeAttribute("action");
+      }
+
+      function onLoad() {
+        cleanup();
+        resolve();
+      }
+
+      iframe.addEventListener("load", onLoad);
+      form.action = url;
+      form.method = "POST";
+      form.target = "comm-sheet-frame";
+      form.submit();
+    });
+  }
+
+  async function postToGoogleSheet(form) {
+    const url = getScriptUrl(form);
+    if (!url || !url.includes("script.google.com")) {
+      throw new Error("Invalid Google Apps Script URL on the contact form");
+    }
+
+    const body = buildSheetPayload(form);
+
+    let response;
+    try {
+      response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body,
+      });
+    } catch (networkErr) {
+      appendLog("CORS relay blocked · switching to iframe uplink", "warn");
+      await submitViaHiddenFrame(form, url);
+      return;
+    }
+
+    if (response.status === 403 || response.status === 401) {
+      throw new Error("SHEET_ACCESS_DENIED");
+    }
+
+    const text = await response.text().catch(() => "");
+    if (/access denied|you need access/i.test(text)) {
+      throw new Error("SHEET_ACCESS_DENIED");
+    }
+
+    if (response.ok && /"ok"\s*:\s*true|"result"\s*:\s*"success"/i.test(text)) {
+      return;
+    }
+
+    if (!response.ok || !/"ok"\s*:\s*true/i.test(text)) {
+      appendLog(
+        `HTTP ${response.status} · retrying via iframe relay`,
+        "warn"
+      );
+      await submitViaHiddenFrame(form, url);
+    }
+  }
+
+  function formatSheetError(err) {
+    if (err?.message === "SHEET_ACCESS_DENIED") {
+      return (
+        "Google Sheet relay denied (403). In Apps Script: Deploy → New deployment → " +
+        "Web app → Execute as: Me → Who has access: Anyone. Paste the new /exec URL into " +
+        "data-sheet-url on the contact form."
+      );
+    }
+    return err?.message || "Transmit failed — try again.";
+  }
+
+  function generateMessageId() {
+    if (typeof crypto !== "undefined" && crypto.randomUUID) {
+      return crypto.randomUUID();
+    }
+    const hex = "0123456789abcdef";
+    let id = "";
+    for (let i = 0; i < 32; i++) {
+      id += hex[Math.floor(Math.random() * 16)];
+    }
+    return `${id.slice(0, 8)}-${id.slice(8, 12)}-${id.slice(12, 16)}-${id.slice(16, 20)}-${id.slice(20)}`;
+  }
+
+  function setUploadProgress(pct, statusText) {
+    const panel = document.getElementById("comm-upload-panel");
+    const fill = document.getElementById("comm-upload-fill");
+    const pctEl = document.getElementById("comm-upload-pct");
+    const packet = document.getElementById("comm-upload-packet");
+    const statusEl = document.getElementById("comm-upload-status");
+    const btnText = document.querySelector(".comm-transmit-text");
+
+    const clamped = Math.min(100, Math.max(0, Math.round(pct)));
+    currentUploadPct = clamped;
+    if (fill) fill.style.width = `${clamped}%`;
+    if (packet) packet.style.left = `${clamped}%`;
+    if (pctEl) pctEl.textContent = `${clamped}%`;
+    if (statusEl && statusText) statusEl.textContent = statusText;
+    if (btnText && panel && !panel.hidden) {
+      btnText.textContent = clamped >= 100 ? "ACK RECEIVED" : `TRANSMITTING ${clamped}%`;
+    }
+  }
+
+  function showUploadPanel() {
+    const panel = document.getElementById("comm-upload-panel");
+    const stream = document.getElementById("comm-packet-stream");
+    if (panel) {
+      panel.hidden = false;
+      panel.classList.remove("is-ack", "is-fail");
+    }
+    if (stream) stream.innerHTML = "";
+    setUploadProgress(0, "serializing payload…");
+  }
+
+  function hideUploadPanel() {
+    const panel = document.getElementById("comm-upload-panel");
+    if (panel) panel.hidden = true;
+    const btnText = document.querySelector(".comm-transmit-text");
+    if (btnText) btnText.textContent = "INITIATE UPLINK";
+  }
+
+  function pushPacketChip(label, frag = false) {
+    const stream = document.getElementById("comm-packet-stream");
+    if (!stream) return;
+    const chip = document.createElement("span");
+    chip.className = `comm-packet-chip${frag ? " comm-packet-chip--frag" : ""}`;
+    chip.textContent = label;
+    stream.appendChild(chip);
+    while (stream.children.length > 8) {
+      stream.removeChild(stream.firstChild);
+    }
+  }
+
+  async function animatePacketUpload() {
+    const steps = reduced
+      ? [
+          { pct: 50, status: "routing packet…", log: "route mid-hop", chip: "FRAG·1/2" },
+          { pct: 100, status: "awaiting ACK…", log: "transmit uplink", chip: "FRAG·2/2", frag: true },
+        ]
+      : [
+          { pct: 8, status: "serializing payload…", log: "serialize JSON frame", chip: "HDR" },
+          { pct: 18, status: "chunking into frames…", log: "chunk size=512B · 4 frames", chip: "FRAG·1/4", frag: true },
+          { pct: 32, status: "applying TLS 1.3…", log: "handshake complete", chip: "FRAG·2/4", frag: true },
+          { pct: 48, status: "routing → INET…", log: "route → INET", chip: "FRAG·3/4", frag: true, node: "inet", hop: 1 },
+          { pct: 62, status: "routing → HYB…", log: "route → HUB", chip: "FRAG·4/4", frag: true, node: "hub", hop: 2 },
+          { pct: 78, status: "encrypt AES-256-GCM…", log: "encrypt payload AES-256-GCM", chip: "ENC" },
+          { pct: 88, status: "transmitting uplink…", log: "transmit TLS 1.3 uplink…", chip: "TX", node: "dest", hop: 3 },
+          { pct: 96, status: "awaiting ACK…", log: "poll ACK from dest", chip: "WAIT" },
+        ];
+
+    for (const step of steps) {
+      setUploadProgress(step.pct, step.status);
+      if (step.log) appendLog(step.log);
+      if (step.chip) pushPacketChip(step.chip, step.frag);
+      if (step.node) setActiveNode(step.node);
+      if (step.hop !== undefined) setRouteHop(step.hop);
+      await delay(reduced ? 120 : 380);
+    }
+  }
+
+  async function runTransmitSequence(form) {
+    showUploadPanel();
+    const formEl = document.getElementById("comm-composer");
+    formEl?.classList.add("transmitting");
+
+    appendLog("INIT uplink sequence");
+    appendLog("packet.size=" + estimatePayloadBytes(form) + "B");
+
+    const routePromise = animateTransmit();
+    const uploadPromise = animatePacketUpload();
+    await Promise.all([routePromise, uploadPromise]);
+
+    setUploadProgress(98, "POST /comm/uplink …");
+    appendLog("POST /comm/uplink → Google Sheets relay");
+    await postToGoogleSheet(form);
+
+    setUploadProgress(100, "ACK received · packet delivered ✓");
+    const panel = document.getElementById("comm-upload-panel");
+    panel?.classList.add("is-ack");
+    pushPacketChip("ACK ✓");
+    await delay(reduced ? 200 : 450);
+  }
+
+  function estimatePayloadBytes(form) {
+    let n = 0;
+    new FormData(form).forEach((v) => {
+      n += String(v).length;
+    });
+    return Math.max(n, 64);
+  }
+
+  function showSuccess(messageId) {
     const overlay = document.getElementById("comm-success-overlay");
     const trace = document.getElementById("comm-success-trace");
+    const msgIdEl = document.getElementById("comm-success-msg-id");
     const strip = document.getElementById("tls-strip");
     const tlsStatus = document.getElementById("tls-status");
     const form = document.getElementById("comm-composer");
 
+    if (msgIdEl) {
+      msgIdEl.textContent = `message-id: ${messageId}`;
+    }
     if (trace) {
-      trace.textContent = `trace_id=${Date.now().toString(36)} · hop=4 · verified`;
+      trace.textContent = `trace_id=${Date.now().toString(36)} · hop=4 · rtt=${18 + Math.floor(Math.random() * 20)}ms`;
     }
     if (overlay) overlay.hidden = false;
     if (strip && tlsStatus) {
@@ -297,7 +536,34 @@
     document.querySelectorAll(".comm-route-hop").forEach((h) => h.classList.add("active"));
     document.querySelectorAll(".comm-route-line").forEach((l) => l.classList.add("active"));
     setActiveNode("dest");
-    appendLog("ACK received · packet delivered ✓");
+    appendLog(`ACK received · message-id=${messageId.slice(0, 8)}…`);
+  }
+
+  function resetTransmitUi() {
+    const overlay = document.getElementById("comm-success-overlay");
+    const msg = document.getElementById("msg");
+    const strip = document.getElementById("tls-strip");
+    const tlsStatus = document.getElementById("tls-status");
+    const form = document.getElementById("comm-composer");
+
+    if (overlay) overlay.hidden = true;
+    if (msg) {
+      msg.textContent = "";
+      msg.classList.remove("success");
+    }
+    hideUploadPanel();
+    form?.classList.remove("transmitting");
+    setUploadProgress(0, "");
+    setRouteHop(0);
+    setActiveNode("you");
+    document.querySelectorAll(".comm-route-hop").forEach((h) => {
+      h.classList.remove("active", "transmitting");
+    });
+    document.querySelectorAll(".comm-route-line").forEach((l) => l.classList.remove("active"));
+    if (strip && tlsStatus) {
+      strip.classList.remove("handshake", "secure");
+      tlsStatus.textContent = "comm.link · awaiting secure handshake";
+    }
   }
 
   function initForm() {
@@ -330,40 +596,30 @@
         tlsStatus.textContent = "Encrypting payload…";
       }
 
-      appendLog("INIT uplink sequence");
+      const messageId = generateMessageId();
+      appendLog(`assign message-id=${messageId}`);
 
       try {
-        await animateTransmit();
-        await fetch(SCRIPT_URL, { method: "POST", body: new FormData(form) });
-        showSuccess();
+        await runTransmitSequence(form);
+        showSuccess(messageId);
         if (msg) {
-          msg.textContent = "Uplink complete — message received.";
+          msg.textContent = `Uplink complete · message-id: ${messageId.slice(0, 13)}…`;
           msg.classList.add("success");
         }
         form.reset();
         updateReadiness();
-        setTimeout(() => {
-          const overlay = document.getElementById("comm-success-overlay");
-          if (overlay) overlay.hidden = true;
-          if (msg) {
-            msg.textContent = "";
-            msg.classList.remove("success");
-          }
-          setRouteHop(0);
-          setActiveNode("you");
-          document.querySelectorAll(".comm-route-hop").forEach((h) => {
-            h.classList.remove("active", "transmitting");
-          });
-          document.querySelectorAll(".comm-route-line").forEach((l) => l.classList.remove("active"));
-          if (strip && tlsStatus) {
-            strip.classList.remove("handshake", "secure");
-            tlsStatus.textContent = "comm.link · awaiting secure handshake";
-          }
-        }, 6000);
+        setTimeout(resetTransmitUi, 8000);
       } catch (err) {
-        appendLog(`ERROR ${err.message || "transmit failed"}`, "err");
-        if (msg) msg.textContent = "Transmit failed — try again.";
-        form.classList.remove("transmitting");
+        const detail = formatSheetError(err);
+        appendLog(`ERROR ${detail}`, "err");
+        const panel = document.getElementById("comm-upload-panel");
+        panel?.classList.add("is-fail");
+        setUploadProgress(currentUploadPct, "NACK · relay failed");
+        if (msg) msg.textContent = detail;
+        document.getElementById("comm-composer")?.classList.remove("transmitting");
+        const btnText = document.querySelector(".comm-transmit-text");
+        if (btnText) btnText.textContent = "INITIATE UPLINK";
+        setTimeout(hideUploadPanel, 4000);
       } finally {
         if (btn) {
           btn.classList.remove("transmitting");

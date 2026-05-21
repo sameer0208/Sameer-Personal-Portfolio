@@ -2,8 +2,8 @@
    Nexus features — rooms, console game
    ============================================ */
 
-/* Scroll-snapped sector rooms */
-@media (min-width: 900px) {
+/* Scroll-snapped sector rooms — large screens only, no forced full-viewport height */
+@media (min-width: 1200px) {
   html.nexus-rooms-enabled {
     scroll-snap-type: y proximity;
     scroll-padding-top: calc(var(--header-h) + 1rem);
@@ -12,13 +12,6 @@
   html.nexus-rooms-enabled main > section.section {
     scroll-snap-align: start;
     scroll-snap-stop: normal;
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
-
-  html.nexus-rooms-enabled main > section.section.home {
-    min-height: 100vh;
-    min-height: 100dvh;
   }
 }
 

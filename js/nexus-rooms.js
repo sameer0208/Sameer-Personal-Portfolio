@@ -15,7 +15,7 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function init() {
-    if (reduced || window.innerWidth < 900) return;
+    if (reduced || window.innerWidth < 1200) return;
 
     document.documentElement.classList.add("nexus-rooms-enabled");
 
