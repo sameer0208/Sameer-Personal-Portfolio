@@ -443,12 +443,7 @@
       }
     }
 
-    const start = () => setTimeout(tick, 400);
-    if (document.body.classList.contains("loader-active")) {
-      document.addEventListener("hero:code-start", start, { once: true });
-    } else {
-      start();
-    }
+    setTimeout(tick, 600);
   }
 
   function highlightCode(code) {
@@ -599,18 +594,43 @@
     });
   }
 
-  /* ---- Console ping (boot lines handled by hero-boot.js) ---- */
+  /* ---- Console output stream ---- */
   function initConsoleOutput() {
+    const outEl = document.querySelector("#hero-console-output .output-text");
     const pingEl = document.getElementById("console-ping");
-    if (!pingEl) return;
+    if (!outEl) return;
+
+    const lines = [
+      "Initializing Sameer Basir profile...",
+      "Loading Thoughtworks workspace...",
+      "Syncing full-stack modules [React, Node, Python]...",
+      "Credentials verified · 10+ certs online",
+      "Nexus ready — scroll to traverse the universe →",
+    ];
+
+    let idx = 0;
 
     function cyclePing() {
-      const ms = Math.floor(8 + Math.random() * 24);
-      pingEl.textContent = `ping ${ms}ms`;
+      if (pingEl) {
+        const ms = Math.floor(8 + Math.random() * 24);
+        pingEl.textContent = `ping ${ms}ms`;
+      }
+    }
+
+    function runLines() {
+      idx = 0;
+      function nextLine() {
+        if (idx >= lines.length) return;
+        outEl.textContent = lines[idx];
+        idx += 1;
+        setTimeout(nextLine, idx === 1 ? 1000 : 1600);
+      }
+      nextLine();
     }
 
     cyclePing();
     setInterval(cyclePing, 2000);
+    setTimeout(runLines, 500);
   }
 
   function init() {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       content="Sayyed Sameer Basir — Associate Developer at Thoughtworks, Full Stack Web Developer, and freelancer based in Hyderabad, India."
@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="css/nexus-buttons.css" />
     <link rel="stylesheet" href="css/theme-notice.css" />
     <link rel="stylesheet" href="css/mobile-smooth.css" />
+    <link rel="stylesheet" href="css/nexus-portfolio-game.css" />
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" data-nexus-dynamic="true" />
     <link rel="shortcut icon" href="images/myimg.png" type="image/x-icon" />
   </head>
@@ -696,7 +697,6 @@ kubectl apply -f k8s/</pre>
 12</div>
               <pre class="hero-code-content" id="hero-code-content"><code></code></pre>
             </div>
-            <pre class="hero-console-boot" id="hero-console-boot" aria-live="polite"></pre>
             <div class="hero-console-output" id="hero-console-output" aria-live="polite">
               <span class="output-prefix">→</span>
               <span class="output-text">Initializing Sameer Basir profile...</span>
@@ -720,7 +720,8 @@ kubectl apply -f k8s/</pre>
               />
             </div>
             <p class="console-easter-hint">
-              Easter egg: <kbd>ls</kbd> · <kbd>scan</kbd> · <kbd>game</kbd> · <kbd>help</kbd>
+              Easter egg: <kbd>ls</kbd> · <kbd>scan</kbd> · <kbd>game</kbd> · <kbd>help</kbd> ·
+              <kbd>quest</kbd>
             </p>
           </div>
         </aside>
@@ -2426,6 +2427,206 @@ kubectl apply -f k8s/</pre>
       </div>
     </footer>
 
+    <!-- PS5 — Portfolio Quest launcher -->
+    <button
+      type="button"
+      class="ps5-launch"
+      id="ps5-launch"
+      aria-label="Launch Portfolio Quest — interactive game mode"
+      title="Portfolio Quest — press to play"
+    >
+      <span class="ps5-launch-glow" aria-hidden="true"></span>
+      <svg class="ps5-controller" viewBox="0 0 200 120" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="ps5-body" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f4f6fb" />
+            <stop offset="100%" stop-color="#c8d0e0" />
+          </linearGradient>
+        </defs>
+        <path
+          class="ps5-shell"
+          d="M28 58 C18 58 8 52 8 42 C8 28 22 18 42 18 L158 18 C178 18 192 28 192 42 C192 52 182 58 172 58 L172 72 C172 88 158 102 138 102 L62 102 C42 102 28 88 28 72 Z"
+          fill="url(#ps5-body)"
+        />
+        <ellipse class="ps5-touchpad" cx="100" cy="52" rx="34" ry="18" />
+        <circle class="ps5-stick ps5-stick--l" cx="52" cy="68" r="14" />
+        <circle class="ps5-stick ps5-stick--r" cx="148" cy="68" r="14" />
+        <circle class="ps5-btn ps5-btn--cross" cx="168" cy="38" r="7" />
+        <circle class="ps5-btn ps5-btn--circle" cx="182" cy="52" r="7" />
+        <polygon class="ps5-btn ps5-btn--triangle" points="168,62 176,74 160,74" />
+        <rect class="ps5-btn ps5-btn--square" x="178" y="62" width="12" height="12" rx="2" transform="rotate(0 184 68)" />
+        <path class="ps5-lightbar" d="M50 22 H150" />
+      </svg>
+      <span class="ps5-launch-label">
+        <span class="ps5-launch-title">Portfolio Quest</span>
+        <span class="ps5-launch-hint">Tap to play</span>
+      </span>
+    </button>
+
+    <div
+      class="ng-overlay"
+      id="ng-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="ng-title"
+      hidden
+    >
+      <div class="ng-scanlines" aria-hidden="true"></div>
+      <div class="ng-vignette" aria-hidden="true"></div>
+
+      <!-- Boot -->
+      <div class="ng-screen ng-screen--boot is-active" data-screen="boot">
+        <div class="ng-boot-card">
+          <p class="ng-boot-brand">SONY-style · NEXUS_OS</p>
+          <h2 id="ng-title" class="ng-boot-title">Portfolio Quest</h2>
+          <p class="ng-boot-sub">Sayyed Sameer Basir · Thoughtworks · Hyderabad · MERN &amp; AI</p>
+          <div class="ng-boot-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <span class="ng-boot-bar-fill" id="ng-boot-fill"></span>
+          </div>
+          <p class="ng-boot-status" id="ng-boot-status">Checking controller...</p>
+          <ul class="ng-boot-commands">
+            <li><strong>1.</strong> Click a portal on the map to walk &amp; open intel</li>
+            <li><strong>2.</strong> Use sector tabs (Core, Work, Services…) to switch</li>
+            <li><strong>3.</strong> Claim XP · Preview site · Resume Quest to return</li>
+          </ul>
+          <button type="button" class="ng-boot-start" id="ng-boot-start">Start game</button>
+          <p class="ng-boot-cta">or press <kbd>Enter</kbd></p>
+        </div>
+      </div>
+
+      <!-- Hub world -->
+      <div class="ng-screen ng-screen--hub" data-screen="hub" hidden>
+        <header class="ng-hud ng-hud--top">
+          <div class="ng-hud-left">
+            <span class="ng-hud-tag">PORTFOLIO QUEST</span>
+            <span class="ng-hud-name">Sayyed Sameer Basir</span>
+            <span class="ng-hud-level">LV <span id="ng-level">1</span></span>
+          </div>
+          <div class="ng-hud-center">
+            <div class="ng-xp-bar" aria-label="Experience">
+              <span class="ng-xp-fill" id="ng-xp-fill"></span>
+            </div>
+            <span class="ng-xp-text"><span id="ng-xp" class="ng-xp-value">0</span> XP</span>
+          </div>
+          <div class="ng-hud-right">
+            <span class="ng-hud-ping" id="ng-ping">12ms</span>
+            <button type="button" class="ng-hud-help" id="ng-help" aria-label="How to play">Help</button>
+            <button type="button" class="ng-hud-exit" id="ng-exit" aria-label="Exit game">Exit</button>
+          </div>
+        </header>
+
+        <div class="ng-hub-layout" id="ng-hub-layout">
+          <div class="ng-world-wrap">
+            <canvas id="ng-canvas" class="ng-canvas" aria-label="Nexus station map"></canvas>
+
+            <div class="ng-nav-hint" id="ng-nav-hint">
+              <i class="bx bx-info-circle"></i>
+              <span id="ng-nav-hint-text">Click a glowing portal on the map</span>
+            </div>
+
+            <canvas class="ng-minimap" id="ng-minimap" width="140" height="90" aria-label="World minimap"></canvas>
+
+            <aside class="ng-quest-panel" aria-label="Quest log">
+              <h3 class="ng-quest-title"><i class="bx bx-target-lock"></i> Quest log</h3>
+              <ul class="ng-quest-list" id="ng-quest-list"></ul>
+              <p class="ng-quest-progress">
+                Sectors <strong id="ng-sectors-done">0</strong>/<span id="ng-sectors-total">7</span>
+                · Shards <strong id="ng-shards-done">0</strong>/<span id="ng-shards-total">5</span>
+              </p>
+            </aside>
+
+            <nav class="ng-sector-rail" id="ng-sector-rail" aria-label="Quick travel to sectors"></nav>
+
+            <aside class="ng-commands-panel" id="ng-commands-panel" aria-label="How to play">
+              <button type="button" class="ng-commands-toggle" id="ng-commands-toggle" aria-expanded="false">
+                <i class="bx bx-book-open"></i> How to play
+              </button>
+              <div class="ng-commands-body" id="ng-commands-body">
+                <ol class="ng-cmd-list">
+                  <li><kbd>Click portal</kbd> — walk &amp; open your profile data</li>
+                  <li><kbd>Right chips</kbd> / <kbd>tabs</kbd> — switch sector</li>
+                  <li><kbd>Claim XP</kbd> — after reading each sector</li>
+                  <li><kbd>Preview on site</kbd> → <kbd>Resume Quest</kbd></li>
+                  <li><kbd>Gold shards</kbd> on map — +50 XP</li>
+                </ol>
+                <p class="ng-cmd-status" id="ng-cmd-status">Status: Explore the station</p>
+              </div>
+            </aside>
+
+            <div class="ng-controls" aria-label="Optional move stick">
+              <div class="ng-joystick-wrap">
+                <span class="ng-joystick-label">Move</span>
+                <div class="ng-joystick" id="ng-joystick" aria-label="Move character">
+                  <div class="ng-joystick-knob" id="ng-joystick-knob"></div>
+                </div>
+              </div>
+            </div>
+
+        <div class="ng-toast" id="ng-toast" role="status" aria-live="polite" hidden></div>
+          </div>
+
+          <!-- Sector drawer — stays beside map, easy return -->
+          <aside class="ng-sector-drawer" id="ng-sector-panel" hidden aria-label="Sector intel">
+            <header class="ng-drawer-head">
+              <button type="button" class="ng-map-return" id="ng-sector-back" aria-label="Back to map">
+                <i class="bx bx-map"></i> Map
+              </button>
+              <nav class="ng-sector-tabs" id="ng-sector-tabs" aria-label="Switch sector"></nav>
+            </header>
+            <div class="ng-drawer-body">
+              <p class="ng-drawer-player" id="ng-drawer-player">Sayyed Sameer Basir · Associate Developer</p>
+              <p class="ng-drawer-xp-line">Total XP: <strong id="ng-xp-total">0</strong> · LV <span id="ng-level-drawer">1</span></p>
+              <span class="ng-sector-module" id="ng-sector-module"></span>
+              <h3 class="ng-sector-name" id="ng-sector-name"></h3>
+              <p class="ng-sector-desc" id="ng-sector-desc"></p>
+              <p class="ng-sector-bio" id="ng-sector-bio"></p>
+              <h4 class="ng-drawer-label">Key facts</h4>
+              <dl class="ng-sector-stats" id="ng-sector-stats"></dl>
+              <h4 class="ng-drawer-label">Highlights</h4>
+              <ul class="ng-sector-highlights" id="ng-sector-highlights"></ul>
+              <h4 class="ng-drawer-label">On this portfolio</h4>
+              <ul class="ng-sector-perks" id="ng-sector-perks"></ul>
+              <div class="ng-sector-actions">
+                <button type="button" class="ng-btn ng-btn--primary" id="ng-visit-section">
+                  <i class="bx bx-show"></i> Preview on site
+                </button>
+                <button type="button" class="ng-btn ng-btn--ghost" id="ng-collect-reward">
+                  <i class="bx bx-trophy"></i> Claim +<span id="ng-reward-xp">100</span> XP
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <button type="button" class="ng-resume-quest" id="ng-resume-quest" hidden>
+          <i class="bx bx-game"></i> Resume Quest
+        </button>
+
+        <!-- Victory -->
+        <div class="ng-victory" id="ng-victory" hidden>
+          <div class="ng-victory-card">
+            <h3>Quest Complete</h3>
+            <p>You explored the full Nexus portfolio universe.</p>
+            <p class="ng-victory-score">Final score: <strong id="ng-final-score">0</strong> XP</p>
+            <button type="button" class="ng-btn ng-btn--primary" id="ng-victory-close">Return to site</button>
+          </div>
+        </div>
+
+        <!-- Tutorial -->
+        <div class="ng-tutorial" id="ng-tutorial" hidden>
+          <div class="ng-tutorial-card">
+            <span class="ng-tutorial-step" id="ng-tutorial-step">1 / 3</span>
+            <h3 id="ng-tutorial-title">Welcome to Nexus Station</h3>
+            <p id="ng-tutorial-body">Click any glowing portal — your character walks there automatically. Use the sector tabs to jump between areas without leaving the game.</p>
+            <div class="ng-tutorial-actions">
+              <button type="button" class="ng-btn ng-btn--ghost" id="ng-tutorial-skip">Skip</button>
+              <button type="button" class="ng-btn ng-btn--primary" id="ng-tutorial-next">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <button
       type="button"
       class="uplink-launcher"
@@ -2463,10 +2664,10 @@ kubectl apply -f k8s/</pre>
     <script src="js/nexus-sys.js"></script>
     <script src="js/about-telemetry.js"></script>
     <script src="js/nexus-console-game.js"></script>
+    <script src="js/nexus-portfolio-game.js"></script>
     <script src="js/comm-link.js"></script>
     <script src="js/nexus-footer.js"></script>
     <script src="js/nexus-buttons.js"></script>
-    <script src="js/hero-boot.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

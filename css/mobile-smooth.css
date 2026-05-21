@@ -258,6 +258,23 @@ main > section.section {
     height: 4.5rem;
   }
 
+  /* PS5 quest launcher — top-right under header (clears left journey rail) */
+  .ps5-launch {
+    top: calc(var(--header-h, 64px) + 0.45rem);
+    right: max(0.5rem, env(safe-area-inset-right, 0px));
+    left: auto;
+    bottom: auto;
+    transform: none;
+    z-index: 93;
+  }
+
+  body.portfolio-game-active .cmd-fab,
+  body.portfolio-game-active .uplink-launcher,
+  body.portfolio-game-active .ps5-launch {
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .holo-projection:hover {
     transform: translateY(-4px);
   }

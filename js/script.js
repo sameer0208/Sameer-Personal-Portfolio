@@ -145,6 +145,20 @@ if (useScrollReveal) {
   sr.reveal(".comm-composer", { origin: "right", delay: 160 });
 }
 
-// Typed.js — started after loader via js/hero-boot.js
+// Typed.js
+if (typeof Typed !== "undefined") {
+  new Typed(".multiple-text", {
+    strings: [
+      "Associate Developer",
+      "Full Stack Developer",
+      "Freelancer",
+      "Content Creator",
+    ],
+    typeSpeed: 55,
+    backSpeed: 40,
+    backDelay: 2000,
+    loop: true,
+  });
+}
 
 document.getElementById("year").textContent = new Date().getFullYear();

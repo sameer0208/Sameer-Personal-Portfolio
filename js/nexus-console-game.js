@@ -82,7 +82,7 @@ EffiGO — Product Engineering Intern · Turito — Content Developer`,
     log(
       `help · ls [path] · cd <dir> · pwd · cat <file>
 goto <sector> · scan · netstat · trace · whoami · uname
-game · hack · sudo · clear · quit`,
+game · quest · hack · sudo · clear · quit`,
       "info"
     );
   }
@@ -344,6 +344,15 @@ game · hack · sudo · clear · quit`,
           log("sudo: access denied. Nice try.", "warn");
         } else {
           log("sudo: try 'sudo hire-me'", "info");
+        }
+        break;
+      case "quest":
+      case "play":
+        if (window.NexusPortfolioQuest?.open) {
+          window.NexusPortfolioQuest.open();
+          log("PORTFOLIO QUEST launched · click planets · flight stick to fly", "success");
+        } else {
+          log("Quest module offline. Click the PS5 controller (bottom-left).", "warn");
         }
         break;
       case "game":
